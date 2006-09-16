@@ -26,19 +26,25 @@ statements
 statement
 	:
 		(	expr
+		|	for_in_statement
 		|	assignment_statement
 		)
-	;	
+	;
+	
+statement_block
+	:
+		'{' statements '}'
+	;
+	
+for_in_statement
+	:
+		'for' IDENT 'in' expr statement_block
+	;
 
 assignment_statement
 	:
-		lvalue '=' expr
-	;
-	
-lvalue
-	:
-		object_expr
-	;
+		object_expr '=' expr
+	;	
 
 expr
 	:
