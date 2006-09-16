@@ -1,0 +1,21 @@
+package org.codehaus.jfdi.interpreter.operations;
+
+import org.codehaus.jfdi.SymbolTable;
+
+public class MemberAccessExpr extends Expr {
+	
+	private Expr lhs;
+	private String name;
+	private Expr[] args;
+
+	public MemberAccessExpr(Expr lhs, String name, Expr[] args) {
+		this.lhs = lhs;
+		this.name = name;
+		this.args = args;
+	}
+
+	public Object evaluate(SymbolTable symbolTable) {
+		return null;
+	}
+
+}
