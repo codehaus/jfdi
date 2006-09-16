@@ -1,7 +1,9 @@
 package org.codehaus.jfdi.interpreter.types;
 
+import org.codehaus.jfdi.SymbolTable;
 
-public class NamedReferenceType implements Type {
+
+public class NamedReferenceType extends Type {
 	
 	private String name;
 
@@ -11,6 +13,10 @@ public class NamedReferenceType implements Type {
 	
 	public String getName() {
 		return name;
+	}
+
+	public Object evaluate(SymbolTable symbolTable) {
+		return symbolTable.get( name );
 	}
 
 }
