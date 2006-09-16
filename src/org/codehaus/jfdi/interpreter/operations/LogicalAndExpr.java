@@ -2,18 +2,18 @@ package org.codehaus.jfdi.interpreter.operations;
 
 import org.codehaus.jfdi.SymbolTable;
 
-public class AssignmentStatement extends Statement {
+public class LogicalAndExpr extends Expr {
 	
 	private Expr lhs;
 	private Expr rhs;
 
-	public AssignmentStatement(Expr lhs, Expr rhs) {
+	public LogicalAndExpr(Expr lhs, Expr rhs) {
 		this.lhs = lhs;
 		this.rhs = rhs;
 	}
 
-	public void execute(SymbolTable symbolTable) {
-		
+	public Object evaluate(SymbolTable symbolTable) {
+		return null;
 	}
 
 }

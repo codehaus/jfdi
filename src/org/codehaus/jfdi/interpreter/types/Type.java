@@ -1,5 +1,7 @@
 package org.codehaus.jfdi.interpreter.types;
 
-public interface Type {
+import org.codehaus.jfdi.interpreter.operations.Expr;
+
+public abstract class Type extends Expr {
 
 }
