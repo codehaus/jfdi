@@ -1,0 +1,96 @@
+package org.codehaus.jfdi.interpreter;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.Date;
+
+
+public class MethodInvoker {
+    private Method                     method;
+    private boolean                    isFunction;
+    private final ValueHandler[]       valueHandlers;
+    private Class[]                    parameterTypes;
+
+    /**
+     * Method invoker
+     */
+    public MethodInvoker(Method method,
+                         boolean isFunction,
+                         ValueHandler[] valueHandlers) {
+        this.valueHandlers = valueHandlers;
+        this.isFunction = isFunction;
+    }
+
+    public Object invoke(Object instance) throws IllegalArgumentException,
+                                                IllegalAccessException,
+                                                InvocationTargetException {
+
+        
+        //the args values that we will pass
+        Object[] args = new Object[this.valueHandlers.length];
+
+        //now we need to set all the values, convert if literal
+        for ( int i = 0; i < this.valueHandlers.length; i++ ) {
+            ValueHandler handler = valueHandlers[i];
+            if ( handler instanceof LiteralValue ) {
+                String text = (String) handler.getValue(  );
+                Class type = parameterTypes[i];
+                if ( type == String.class ) {
+                    args[i] = text;
+                } else {
+                    args[i] = convert( text,
+                                       type );
+                }
+            } else {
+                args[i] = handler.getValue(  );
+            }
+        }
+
+        // None static methods cannot have a null instance
+        if ( !isFunction && instance == null ) {
+            throw new NullPointerException( "Cannot call the non-static method [" + this.method.getName() + "] on the class [" + this.method.getDeclaringClass().getName() + " with a null instance" );
+        }
+
+        Object result = null;
+        
+        //now the actual invoking of the method
+        result = this.method.invoke( instance,
+                                     args );
+
+        return result;
+    }
+
+    /** 
+     * Attempt to convert text to the target class type 
+     */
+    private static Object convert(String text,
+                                  Class type) {
+        if ( type == Integer.class || type == int.class ) {
+            return new Integer( text );
+        } else if ( text == "null" ) {
+            return null;
+        } else if ( type == Character.class || type == char.class ) {
+            return (new Character( text.charAt( 0 ) ));
+        } else if ( type == Short.class || type == short.class ) {
+            return new Short( text );
+        } else if ( type == Long.class || type == long.class ) {
+            return new Long( text );
+        } else if ( type == Float.class || type == float.class ) {
+            return new Float( text );
+        } else if ( type == Double.class || type == double.class ) {
+            return new Double( text );
+        } else if ( type == Boolean.class || type == boolean.class ) {
+            return new Boolean( text );
+        } else if ( type == Date.class ) {
+            //return DateFactory.parseDate( text );
+            throw new UnsupportedOperationException("Whoops ! need to do dates !");
+        } else if ( type == BigDecimal.class ) {
+            return new BigDecimal( text );
+        } else if ( type == BigInteger.class ) {
+            return new BigInteger( text );
+        } else {
+            throw new IllegalArgumentException( "Unable to convert [" + text + "] to type: [" + type.getName() + "]" );
+        }
+    }
+}

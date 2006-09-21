@@ -1,6 +1,7 @@
 package org.codehaus.jfdi.interpreter;
 
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,13 +31,78 @@ public abstract class ValueHandlerFactory
     public static final int   MAP              = 64;
     public static final int   LIST             = 128;
 
-    public ValueHandler createLiteral(int type, Object obj) {
-        //TODO: convert type appropriately?
-        return new LiteralValue(obj);
+    public ValueHandler createLiteral(int type, String val) {
+        if (type == STRING) {
+            return new LiteralValue(val);
+        } else {
+            Class cls = determineLiteralType( val );
+            Object objectValue = null;
+            try {
+                objectValue = cls.getDeclaredConstructor( new Class[] { String.class } ).newInstance( new Object[] { val } );
+            } catch ( Exception e ) {
+                throw new RuntimeException( e );
+            }
+            return new LiteralValue( objectValue );
+        }
     }
     
     /** To be implemented by the concrete factory */
-    public abstract ValueHandler createLocalVariable(int type, boolean isFinal, Object object);
+    public ValueHandler createLocalVariable(String identifier, Class type, boolean isFinal) {
+        return new LocalVariable(identifier, type, isFinal);
+    }
+    
+    private Class determineLiteralType(String val) {
+        
+        if ( Character.getType( val.charAt( 0 ) ) == Character.DECIMAL_DIGIT_NUMBER ) {
+            // we have a number
+
+            char c = val.charAt( val.length() - 1 );
+            if ( val.indexOf( '.' ) == -1 ) {
+                /// we have an integral
+                if ( Character.getType( c ) != Character.DECIMAL_DIGIT_NUMBER ) {
+                    switch ( c ) {
+                        case 'l' :
+                        case 'L' :
+                            return Long.class;
+                            
+                        case 'f' :
+                        case 'F' :
+                            return Float.class;
+                            
+                        case 'd' :
+                        case 'D' :
+                            return Double.class;
+                            
+                        default :
+                            throw new IllegalArgumentException( "invalid type identifier '" + c + "' used with number [" + val + "]" );
+                    }
+                } else {
+                    return Integer.class;
+                }
+            } else {
+                // we have a decimal
+                if ( Character.getType( c ) != Character.DECIMAL_DIGIT_NUMBER ) {
+                    switch ( c ) {
+                        case 'l' :
+                        case 'L' :
+                            throw new IllegalArgumentException( "invalid type identifier '" + c + "' used with number [" + val + "]" );
+                        case 'f' :
+                        case 'F' :
+                            return Float.class;                            
+                        case 'd' :
+                        case 'D' :
+                            return Double.class;
+                        default :
+                            throw new IllegalArgumentException( "invalid type identifier '" + c + "' used with number [" + val + "]" );
+                    }
+                } else {
+                    return Float.class;
+                }
+            }
+        } else {
+            throw new IllegalArgumentException("Unable to work out type for literal : " + val);
+        }
+    }
     
     /** To be implemented byt eh concrete factory */
     public abstract ValueHandler createExternalVariable(String identifier);
