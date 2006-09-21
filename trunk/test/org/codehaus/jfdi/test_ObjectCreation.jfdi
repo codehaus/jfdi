@@ -1,0 +1,10 @@
+#shows creating objects
+foo = new FooBar #no params
+bar = new BarBaz("x", 42)
+
+#the object creators will need to "call out" to a type resolver to actually create the object
+#this allows it to work transparently with classes, or fact templates
+
+#for extra points:
+#calls defaults constructor, THEN setters
+bar = new BarBaz(field1 = "val", field2 = "x")

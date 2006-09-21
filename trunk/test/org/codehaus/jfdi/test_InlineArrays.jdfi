@@ -1,3 +1,5 @@
+#we have inline arrays and maps already working in drl.g take a look at from_source
+
 #inline arrays
 x= [1, 2,"z"]
 y= [x, 2, 3]
