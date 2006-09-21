@@ -1,0 +1,8 @@
+#inline maps
+x= {"a" <= 2, "b" <= c}
+
+#and inline map access
+x["a"]
+
+#question: should we have :label notation for interned strings/symbols? probably not
+

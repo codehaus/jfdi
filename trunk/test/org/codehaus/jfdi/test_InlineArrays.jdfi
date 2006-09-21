@@ -1,0 +1,8 @@
+#inline arrays
+x= [1, 2,"z"]
+y= [x, 2, 3]
+
+
+#and we can access arrays:
+q=x[1] //the 1st index (0 start, as GOD INTENDED)
+

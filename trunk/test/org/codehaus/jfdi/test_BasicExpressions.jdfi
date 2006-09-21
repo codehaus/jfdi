@@ -1,0 +1,8 @@
+#basic expressions - remember every expression also returns a value
+z = 1
+x = 42
+a.b.c = 2
+a.b = x //should resolve to calling setters etc.
+z.a.b #returns the nested value
+
+
