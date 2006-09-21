@@ -1,12 +1,13 @@
 #we have "collection" which is a collection or some sort
 
-for each item in collection {
+#like rubies foreach
+foreach item in collection {
 	func(item)
 	func2(index) #should we make index available automatically as a counter?
 }
 
 #or for single statments?
-for each item in collection
+foreach item in collection
     process(item)
     
 #just one line below is in the loop, just like in java    
