@@ -46,7 +46,6 @@ public abstract class ValueHandlerFactory
         }
     }
     
-    /** To be implemented by the concrete factory */
     public ValueHandler createLocalVariable(String identifier, Class type, boolean isFinal) {
         return new LocalVariable(identifier, type, isFinal);
     }
