@@ -1,3 +1,7 @@
 #function calling
 func(z)
 func2(z, 1, "x")
+
+#what about bracket assumption - would be very nice and trivially easy
+simpleFunc x,y
+sendEmail "michael@foo.bar"
