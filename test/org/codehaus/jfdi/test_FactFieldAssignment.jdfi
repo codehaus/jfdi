@@ -1,0 +1,4 @@
+#and fact assignment
+fact(field="x")
+fact2(field1=z, field2=42)
+

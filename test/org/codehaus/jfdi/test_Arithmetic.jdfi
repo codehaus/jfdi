@@ -1,0 +1,9 @@
+#basic arithmetic
+q = 1 + 2
+val = q + 3
+val2 = (q * z - 42) / 6
+val3 = 7% #I think % should be automatically converted to 0.07 Float or BigDecimal
+
+#note: EVERY expression should return a value, just like in ruby. So the first one above will 
+#return the value of 3 (for q), and so on. 
+#not sure about multiple assignments on one line - either one per line, or ";" delimited?
