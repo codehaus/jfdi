@@ -6,7 +6,7 @@ package org.codehaus.jfdi.interpreter;
  */
 public interface ValueHandler {
     Object getValue();
-    void setValue(Object variable);
+    void setValue(Object value);
     
     boolean isLocal();
     boolean isFinal();

@@ -22,10 +22,6 @@ public class LiteralValue
         return this.value;
     }
     
-    public Class getExtractToClass() {
-        return this.value.getClass();
-    }     
-    
     public void reset() {
         // N/A
     }    

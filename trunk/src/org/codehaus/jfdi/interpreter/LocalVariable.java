@@ -15,9 +15,7 @@ public class LocalVariable implements VariableValueHandler {
         this.type = type;
         this.isFinal = isFinal;
         this.identifier = identifier;
-    }
-    
-
+    }    
 
     public Class getType() {
         return this.type;
