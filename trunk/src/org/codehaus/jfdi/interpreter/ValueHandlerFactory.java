@@ -31,6 +31,9 @@ public abstract class ValueHandlerFactory
     public static final int   MAP              = 64;
     public static final int   LIST             = 128;
 
+    /**
+     * This is for creating a literal "value handler"
+     */
     public ValueHandler createLiteral(int type, String val) {
         if (type == STRING) {
             return new LiteralValue(val);
@@ -45,10 +48,14 @@ public abstract class ValueHandlerFactory
             return new LiteralValue( objectValue );
         }
     }
-    
+
+    /** 
+     * A local variable requires a type of some form (class).
+     */
     public ValueHandler createLocalVariable(String identifier, Class type, boolean isFinal) {
         return new LocalVariable(identifier, type, isFinal);
     }
+    
     
     private Class determineLiteralType(String val) {
         
@@ -103,7 +110,10 @@ public abstract class ValueHandlerFactory
         }
     }
     
-    /** To be implemented byt eh concrete factory */
+    /** 
+     * To be implemented by the concrete factory.
+     * External variables will be provided to the parser ahead of time.
+     */
     public abstract ValueHandler createExternalVariable(String identifier);
    
 
