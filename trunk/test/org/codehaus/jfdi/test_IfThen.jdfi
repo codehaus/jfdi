@@ -1,8 +1,0 @@
-#not sure if we are even doing this?
-
-if some.thing? then
-	doIt(42)
-else
-	dont
-
-
