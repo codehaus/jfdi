@@ -1,5 +1,5 @@
 #inline maps
-x= {"a" <= 2, "b" <= c}
+x= {"a" => 2, "b" => c}
 
 #and inline map access
 x["a"]
