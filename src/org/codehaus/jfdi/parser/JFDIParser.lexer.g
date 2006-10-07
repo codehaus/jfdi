@@ -21,13 +21,13 @@ T22 : '[' ;
 T23 : ']' ;
 T24 : '.' ;
 
-// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 121
+// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 122
 IDENT
 	:	
 		('a'..'z'|'A'..'Z'|'_'|'$')('a'..'z'|'A'..'Z'|'_'|'0'..'9')* 
 	;
 	
-// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 126
+// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 127
 INTEGER
 	:
 		(	('1'..'9')('0'..'9')*
@@ -36,13 +36,13 @@ INTEGER
 		)
 	;
 	
-// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 134
+// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 135
 STRING
 	:
 		'"' ~'"'+ '"'
 	;
 	
-// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 139
+// $ANTLR src "/Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g" 140
 FLOAT
 	:
 		('0'..'9')+'.'('0'..'9')+
