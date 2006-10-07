@@ -18,7 +18,7 @@ public class MethodResolver {
     private final static MethodResolver instance = new MethodResolver();
     
     
-    public MethodResolver getInstance() {
+    public static MethodResolver getInstance() {
         return instance;
     }
 
