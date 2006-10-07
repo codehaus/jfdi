@@ -27,7 +27,6 @@ statement
 	:
 		(	expr
 		|	for_in_statement
-		|	assignment_statement
 		)
 	;
 	
@@ -94,7 +93,7 @@ object_expr
 	:
 		IDENT
 		(	'[' expr ']'
-		|	'.' IDENT ('(' arg_list ')')?
+		| ('.' IDENT '(')=> '.' IDENT ('(' arg_list ')')
 		)*
 	;
 	

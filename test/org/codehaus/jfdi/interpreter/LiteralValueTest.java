@@ -1,7 +1,5 @@
 package org.codehaus.jfdi.interpreter;
 
-import org.codehaus.jfdi.Cheese;
-
 import junit.framework.TestCase;
 
 public class LiteralValueTest extends TestCase {
