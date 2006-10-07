@@ -1,18 +1,23 @@
 package org.codehaus.jfdi.interpreter.operations;
 
-import org.codehaus.jfdi.SymbolTable;
-
 public class AdditiveExpr implements Expr {
+	
+	public static class Operator { }
+	public static final Operator PLUS = new Operator();
+	public static final Operator MINUS = new Operator();
 	
 	private Expr lhs;
 	private Expr rhs;
+	private Operator op;
 
-	public AdditiveExpr(Expr lhs, Expr rhs) {
+	public AdditiveExpr(Expr lhs, Expr rhs, Operator op) {
 		this.lhs = lhs;
 		this.rhs = rhs;
+		this.op  = op;
 	}
 
-	public Object evaluate(SymbolTable symbolTable) {
+	public Object getValue() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
