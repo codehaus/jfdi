@@ -2,7 +2,7 @@ package org.codehaus.jfdi.interpreter.operations;
 
 import org.codehaus.jfdi.SymbolTable;
 
-public class CollectionIndexExpr extends Expr {
+public class CollectionIndexExpr implements Expr {
 	
 	private Expr lhs;
 	private Expr index;

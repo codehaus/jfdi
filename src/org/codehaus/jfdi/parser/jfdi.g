@@ -3,6 +3,7 @@ grammar JFDIParser;
 @parser::header {
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
+	import org.codehaus.jfdi.interpreter.operations.*;
 }
 
 @parser::members {
@@ -46,42 +47,57 @@ assignment_statement
 		object_expr '=' expr
 	;	
 
-expr
+expr returns [Expr e]
+	@init {
+		e = null;
+	}
 	:
 		logical_or_expr
 	;
 	
-logical_or_expr
+logical_or_expr returns [Expr e]
+	@init {
+		e = null;
+	}
 	:
 		logical_and_expr ( '||' logical_and_expr )*
 	;
 	
-logical_and_expr
+logical_and_expr returns [Expr e]
+	@init {
+		e = null;
+	}
 	:
 		additive_expr ( '&&' additive_expr )*
 	;
 	
 	
-additive_expr
+additive_expr returns [Expr e]
+	@init {
+		e = null;
+	}
 	:
 		multiplicative_expr ( ( '+' | '-' ) multiplicative_expr )*
 	;
 
-multiplicative_expr
+multiplicative_expr returns [Expr e]
+	@init {
+		e = null;
+	}
 	:
 		atom ( ( '*' | '/' ) atom )*
 	;
 	
-atom returns [Object atom]
+atom returns [Expr e]
 	@init{
-		atom = null;
+		e = null;
 	}
 	:
-		(	i=INTEGER { atom = new LiteralValue( new Integer( i.getText() ) ); }
-		|	s=STRING  { atom = new LiteralValue( s.getText().substring( 1, s.getText().length()-1 ) ); }
-		|	f=FLOAT   { atom = new LiteralValue( new Double( f.getText() ) ); }
-		|	'(' expr ')'
-		|	object_expr
+		(	i=INTEGER { e = new LiteralValue( new Integer( i.getText() ) ); }
+		|	s=STRING  { e = new LiteralValue( s.getText().substring( 1, s.getText().length()-1 ) ); }
+		|	f=FLOAT   { e = new LiteralValue( new Double( f.getText() ) ); }
+		|	'(' ex=expr ')' { e = ex; }
+		|	ex=object_expr  { e = ex; }
 		)
 	;
 	
@@ -93,7 +109,10 @@ arg_list
 		)
 	;
 	
-object_expr
+object_expr returns [Expr e]
+	@init {
+		e = null;
+	}
 	:
 		IDENT
 		(	'[' expr ']'
