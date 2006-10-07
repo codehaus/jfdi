@@ -62,7 +62,6 @@ public class ListValueTest extends TestCase {
         
         assertEquals( 1, nestedList.size() );
         
-        assertEquals( "literal", nestedList.get( 0 ) );
-        
+        assertEquals( "literal", nestedList.get( 0 ) );        
     }
 }
