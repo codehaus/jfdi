@@ -71,11 +71,14 @@ multiplicative_expr
 		atom ( ( '*' | '/' ) atom )*
 	;
 	
-atom
+atom returns [Object atom]
+	@init{
+		atom = null;
+	}
 	:
-		(	INTEGER
-		|	STRING
-		|	FLOAT
+		(	i=INTEGER { atom = new Integer( i.getText() ); }
+		|	s=STRING  { atom = s.getText(); }
+		|	f=FLOAT   { atom = new Double( f.getText() ); }
 		|	'(' expr ')'
 		|	object_expr
 		)
