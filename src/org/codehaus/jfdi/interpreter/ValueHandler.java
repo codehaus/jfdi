@@ -7,7 +7,6 @@ import org.codehaus.jfdi.interpreter.operations.Expr;
  * The runtime will call this when executing.
  */
 public interface ValueHandler extends Expr {
-    Object getValue();
     void setValue(Object value);
     
     boolean isLocal();

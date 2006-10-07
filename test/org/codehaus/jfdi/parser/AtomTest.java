@@ -36,5 +36,12 @@ public class AtomTest extends JfdiParserTestCase {
 		assertEquals( "442.42", result.getValue() );
 	}
 	
+	public void testBooleanTrue() throws Exception {
+		JFDIParser parser = createParser( "test_Atom_BooleanTrue.jfdi" );
+		
+		ValueHandler result = (ValueHandler) parser.atom();
+		
+		assertEquals( Boolean.TRUE, result.getValue() );
+	}
 
 }

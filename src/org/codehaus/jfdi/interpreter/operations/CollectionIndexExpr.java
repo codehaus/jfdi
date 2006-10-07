@@ -16,4 +16,9 @@ public class CollectionIndexExpr implements Expr {
 		return null;
 	}
 
+	public Object getValue() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
