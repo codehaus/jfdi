@@ -18,6 +18,7 @@ public class MethodInvoker {
     public MethodInvoker(Method method,
                          boolean isFunction,
                          ValueHandler[] valueHandlers) {
+        this.method = method;
         this.valueHandlers = valueHandlers;
         this.isFunction = isFunction;
     }
@@ -27,24 +28,14 @@ public class MethodInvoker {
                                                 InvocationTargetException {
 
         
+        
         //the args values that we will pass
         Object[] args = new Object[this.valueHandlers.length];
 
         //now we need to set all the values, convert if literal
         for ( int i = 0; i < this.valueHandlers.length; i++ ) {
             ValueHandler handler = valueHandlers[i];
-            if ( handler instanceof LiteralValue ) {
-                String text = (String) handler.getValue(  );
-                Class type = parameterTypes[i];
-                if ( type == String.class ) {
-                    args[i] = text;
-                } else {
-                    args[i] = convert( text,
-                                       type );
-                }
-            } else {
-                args[i] = handler.getValue(  );
-            }
+            args[i] = handler.getValue(  );
         }
 
         // None static methods cannot have a null instance
