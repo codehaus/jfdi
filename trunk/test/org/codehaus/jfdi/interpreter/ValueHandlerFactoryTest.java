@@ -35,35 +35,30 @@ public class ValueHandlerFactoryTest extends TestCase {
     }    
     
     public void testFloatLiteral(){
-        // If it has an f on the end, even  though the parser thinks its an integer the type hint makes  it a  float
         ValueHandler literal =factory.createLiteral( Float.class, "2" );
         assertEquals(  new Float( "2" ),
                        literal.getValue() );
     }
     
     public void testDoubleLiteral(){
-        // If it has an f on the end, even  though the parser thinks its an integer the type hint makes  it a  float
         ValueHandler literal =factory.createLiteral( Double.class, "2" );
         assertEquals(  new Double( "2" ),
                        literal.getValue() );
     }  
     
     public void testBigDecimalLiteral(){
-        // If it has an f on the end, even  though the parser thinks its an integer the type hint makes  it a  float
         ValueHandler literal =factory.createLiteral( BigDecimal.class, "2" );
         assertEquals(  new BigDecimal( "2" ),
                        literal.getValue() );
     }      
     
     public void testBigIntegerLiteral(){
-        // If it has an f on the end, even  though the parser thinks its an integer the type hint makes  it a  float
         ValueHandler literal =factory.createLiteral( BigInteger.class, "2" );
         assertEquals(  new BigInteger( "2" ),
                        literal.getValue() );
     }    
     
     public void testLocalVariable() {
-        //this.typeResolver.addType("Cheese", Cheese.class);
         ValueHandler valueHandler = factory.createLocalVariable( "brie", "Cheese", true );
         
         Cheese brie = new Cheese("brie", 45);
