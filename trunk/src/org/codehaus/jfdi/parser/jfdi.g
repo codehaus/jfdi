@@ -2,6 +2,7 @@ grammar JFDIParser;
 
 @parser::header {
 	package org.codehaus.jfdi.parser;
+	import org.codehaus.jfdi.interpreter.*;
 }
 
 @parser::members {
@@ -76,9 +77,9 @@ atom returns [Object atom]
 		atom = null;
 	}
 	:
-		(	i=INTEGER { atom = new Integer( i.getText() ); }
-		|	s=STRING  { atom = s.getText(); }
-		|	f=FLOAT   { atom = new Double( f.getText() ); }
+		(	i=INTEGER { atom = new LiteralValue( new Integer( i.getText() ) ); }
+		|	s=STRING  { atom = new LiteralValue( s.getText().substring( 1, s.getText().length()-1 ) ); }
+		|	f=FLOAT   { atom = new LiteralValue( new Double( f.getText() ) ); }
 		|	'(' expr ')'
 		|	object_expr
 		)
