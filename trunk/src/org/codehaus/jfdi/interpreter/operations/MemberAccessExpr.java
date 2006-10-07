@@ -2,7 +2,7 @@ package org.codehaus.jfdi.interpreter.operations;
 
 import org.codehaus.jfdi.SymbolTable;
 
-public class MemberAccessExpr extends Expr {
+public class MemberAccessExpr implements Expr {
 	
 	private Expr lhs;
 	private String name;

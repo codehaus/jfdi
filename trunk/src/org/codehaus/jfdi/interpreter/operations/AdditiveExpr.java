@@ -2,7 +2,7 @@ package org.codehaus.jfdi.interpreter.operations;
 
 import org.codehaus.jfdi.SymbolTable;
 
-public class AdditiveExpr extends Expr {
+public class AdditiveExpr implements Expr {
 	
 	private Expr lhs;
 	private Expr rhs;

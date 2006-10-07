@@ -1,10 +1,12 @@
 package org.codehaus.jfdi.interpreter;
 
+import org.codehaus.jfdi.interpreter.operations.Expr;
+
 /**
  * This specifies a container for a variable that will be used at runtime. 
  * The runtime will call this when executing.
  */
-public interface ValueHandler {
+public interface ValueHandler extends Expr {
     Object getValue();
     void setValue(Object value);
     
