@@ -37,5 +37,13 @@ public class MethodTest extends JfdiParserTestCase {
 		
 		assertEquals( 2, ((Integer)expr.getValue()).intValue() );
 	}
+	public void testMethodNested() throws Exception {
+		addVariable( "foo", "BobMcWhirter" );
+		JFDIParser parser = createParser( "foo.substring(1,foo.length()-1)" );
+		
+		Expr expr = (Expr) parser.atom();
+		
+		assertEquals( "obMcWhirte", expr.getValue() );
+	}
 
 }
