@@ -1,4 +1,4 @@
-// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-07 21:28:48
+// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-08 16:14:41
 
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
@@ -990,6 +990,7 @@ public class JFDIParser extends Parser {
             	    if ( backtracking==0 ) {
 
             	      				e = new MethodCall( e, m.getText(), paramExprs );
+            	      				paramExprs = new Expr[0];
             	      			
             	    }
 

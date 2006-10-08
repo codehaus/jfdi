@@ -172,6 +172,7 @@ object_expr returns [Expr e]
 				)? ')' 
 			{
 				e = new MethodCall( e, m.getText(), paramExprs );
+				paramExprs = new Expr[0];
 			}
 		)*
 	;
