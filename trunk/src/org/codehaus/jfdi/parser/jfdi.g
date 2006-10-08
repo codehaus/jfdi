@@ -71,7 +71,7 @@ logical_or_expr returns [Expr e]
 		e = null;
 	}
 	:
-		lhs=logical_and_expr 
+		lhs=logical_and_expr { e = lhs; }
 		(	'||' rhs=logical_and_expr 
 			{ e = new LogicalOrExpr( e, rhs ); }
 		)*

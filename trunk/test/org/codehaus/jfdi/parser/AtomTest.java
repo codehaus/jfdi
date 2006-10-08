@@ -13,7 +13,7 @@ public class AtomTest extends JfdiParserTestCase {
 	}
 	
 	public void testInteger() throws Exception {
-		JFDIParser parser = createParser( "test_Atom_Integer.jfdi" );
+		JFDIParser parser = createParser( "442" );
 		
 		ValueHandler result = (ValueHandler) parser.atom();
 		
@@ -21,7 +21,7 @@ public class AtomTest extends JfdiParserTestCase {
 	}
 	
 	public void testFloat() throws Exception {
-		JFDIParser parser = createParser( "test_Atom_Float.jfdi" );
+		JFDIParser parser = createParser( "442.42" );
 		
 		ValueHandler result = (ValueHandler) parser.atom();
 		
@@ -29,7 +29,7 @@ public class AtomTest extends JfdiParserTestCase {
 	}
 	
 	public void testString() throws Exception {
-		JFDIParser parser = createParser( "test_Atom_String.jfdi" );
+		JFDIParser parser = createParser( "\"442.42\"" );
 		
 		ValueHandler result = (ValueHandler) parser.atom();
 		
@@ -37,7 +37,7 @@ public class AtomTest extends JfdiParserTestCase {
 	}
 	
 	public void testBooleanTrue() throws Exception {
-		JFDIParser parser = createParser( "test_Atom_BooleanTrue.jfdi" );
+		JFDIParser parser = createParser( "true" );
 		
 		ValueHandler result = (ValueHandler) parser.atom();
 		
