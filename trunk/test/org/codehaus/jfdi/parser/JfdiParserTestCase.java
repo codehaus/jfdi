@@ -33,31 +33,31 @@ public abstract class JfdiParserTestCase extends TestCase {
 	}
 	
 	
-	protected JFDIParser createParser(String path) throws IOException {
-		JFDIParser parser = new JFDIParser( createTokenStream( path ) );
+	protected JFDIParser createParser(String text) throws IOException {
+		JFDIParser parser = new JFDIParser( createTokenStream( text ) );
 		parser.setValueHandlerFactory( factory );
 		return parser;
 	}
 	
-	private TokenStream createTokenStream(String path) throws IOException {
-		return new CommonTokenStream( createLexer( path ) );
+	private TokenStream createTokenStream(String text) throws IOException {
+		return new CommonTokenStream( createLexer( text ) );
 	}
 	
-	private JFDIParserLexer createLexer(String path) throws IOException {
-		JFDIParserLexer lexer = new JFDIParserLexer( createStream( path ) );
+	private JFDIParserLexer createLexer(String text) throws IOException {
+		JFDIParserLexer lexer = new JFDIParserLexer( createStream( text ) );
 		return lexer;
 	}
 	
-	private CharStream createStream(String path) throws IOException {
-		if ( path.endsWith( ".jfdi" ) ) {
-			return new ANTLRReaderStream( createReader( path ) );
+	private CharStream createStream(String text) throws IOException {
+		if ( text.endsWith( ".jfdi" ) ) {
+			return new ANTLRReaderStream( createReader( text ) );
 		}
 		
-		return new ANTLRStringStream( path );
+		return new ANTLRStringStream( text );
 	}
 	
-	private Reader createReader(String path) {
-		InputStream in = getClass().getResourceAsStream( path );
+	private Reader createReader(String text) {
+		InputStream in = getClass().getResourceAsStream( text );
 		return new InputStreamReader( in );
 	}
 
