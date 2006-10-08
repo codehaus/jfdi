@@ -2,6 +2,7 @@ package org.codehaus.jfdi.interpreter.operations;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 
 import org.codehaus.jfdi.interpreter.MethodInvoker;
 import org.codehaus.jfdi.interpreter.MethodResolver;
@@ -26,6 +27,7 @@ public class MethodCall implements Expr {
 			paramObjs[i] = params[i].getValue();
 		}
 		
+		System.err.println( "CALL " + name + " " + Arrays.asList( paramObjs ) );
 		Method method = MethodResolver.getInstance().resolveMethod( thisObj.getClass(), name, paramObjs );
 		MethodInvoker invoker = new MethodInvoker(  method, false, paramObjs );
 		try {
