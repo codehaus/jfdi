@@ -53,4 +53,51 @@ public class ArithTest extends JfdiParserTestCase {
 		Expr result = parser.additive_expr();
 		assertEquals( -4, ((Integer)result.getValue()).intValue() );
 	}
+	
+
+	public void testMult_Integers() throws Exception {
+		JFDIParser parser = createParser( "4*8" );
+		
+		Expr result = parser.additive_expr();
+		assertEquals( 32, ((Integer)result.getValue()).intValue() );
+	}
+	
+	public void testMult_Floats() throws Exception {
+		JFDIParser parser = createParser( "4.2*8.8" );
+		
+		Expr result = parser.additive_expr();
+		assertEquals( 36.96, ((Double)result.getValue()).doubleValue(),0.05 );
+	}
+	
+	public void testMult_Mixed() throws Exception {
+		JFDIParser parser = createParser( "4.2*8" );
+		
+		Expr result = parser.additive_expr();
+		assertEquals( 32, ((Integer)result.getValue()).intValue() );
+	}
+	
+	
+	public void testDiv_Integers() throws Exception {
+		JFDIParser parser = createParser( "32/8" );
+		
+		Expr result = parser.additive_expr();
+		assertEquals( 4, ((Integer)result.getValue()).intValue() );
+	}
+	
+	public void testDiv_Floats() throws Exception {
+		JFDIParser parser = createParser( "34.2/8.8" );
+		
+		Expr result = parser.additive_expr();
+		assertEquals( 3.88, ((Double)result.getValue()).doubleValue(),0.05 );
+	}
+	
+	public void testDiv_Mixed() throws Exception {
+		JFDIParser parser = createParser( "32.2/8" );
+		
+		Expr result = parser.additive_expr();
+		assertEquals( 4, ((Integer)result.getValue()).intValue() );
+	}	
+	
+	
+	
 }
