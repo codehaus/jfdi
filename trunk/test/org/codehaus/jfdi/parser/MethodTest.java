@@ -21,5 +21,14 @@ public class MethodTest extends JfdiParserTestCase {
 		assertEquals( 12, ((Integer)expr.getValue()).intValue() );
 	}
 	
+	public void testMethodWithParams() throws Exception {
+		addVariable( "foo", "BobMcWhirter" );
+		JFDIParser parser = createParser( "foo.substring(1,3)" );
+		
+		Expr expr = (Expr) parser.atom();
+		
+		assertEquals( "ob", expr.getValue() );
+	}
+	
 
 }
