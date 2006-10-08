@@ -32,6 +32,9 @@ public class ClassTypeResolver
     private final ClassLoader classLoader;
 
     private Map               cachedImports = new HashMap();
+    public ClassTypeResolver() {
+    		this( Collections.EMPTY_LIST );
+    }
 
     public ClassTypeResolver(final List imports) {
         this( imports,
