@@ -1,8 +1,10 @@
-// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-07 20:12:03
+// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-07 21:28:48
 
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
 	import org.codehaus.jfdi.interpreter.operations.*;
+	import java.util.List;
+	import java.util.ArrayList;
 
 
 import org.antlr.runtime.*;
@@ -46,11 +48,11 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start compilation_unit
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:28:1: compilation_unit : statements ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:30:1: compilation_unit : statements ;
     public void compilation_unit() throws RecognitionException {   
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:30:3: ( statements )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:30:3: statements
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:32:3: ( statements )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:32:3: statements
             {
             pushFollow(FOLLOW_statements_in_compilation_unit42);
             statements();
@@ -72,13 +74,13 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start statements
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:34:1: statements : ( statement )* ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:36:1: statements : ( statement )* ;
     public void statements() throws RecognitionException {   
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:36:3: ( ( statement )* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:36:3: ( statement )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:38:3: ( ( statement )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:38:3: ( statement )*
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:36:3: ( statement )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:38:3: ( statement )*
             loop1:
             do {
                 int alt1=2;
@@ -90,7 +92,7 @@ public class JFDIParser extends Parser {
 
                 switch (alt1) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:36:3: statement
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:38:3: statement
             	    {
             	    pushFollow(FOLLOW_statement_in_statements58);
             	    statement();
@@ -121,13 +123,13 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start statement
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:39:1: statement : ( expr | for_in_statement ) ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:41:1: statement : ( expr | for_in_statement ) ;
     public void statement() throws RecognitionException {   
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:41:3: ( ( expr | for_in_statement ) )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:41:3: ( expr | for_in_statement )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:43:3: ( ( expr | for_in_statement ) )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:43:3: ( expr | for_in_statement )
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:41:3: ( expr | for_in_statement )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:43:3: ( expr | for_in_statement )
             int alt2=2;
             int LA2_0 = input.LA(1);
             if ( ((LA2_0>=IDENT && LA2_0<=FLOAT)||(LA2_0>=19 && LA2_0<=21)) ) {
@@ -139,13 +141,13 @@ public class JFDIParser extends Parser {
             else {
                 if (backtracking>0) {failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("41:3: ( expr | for_in_statement )", 2, 0, input);
+                    new NoViableAltException("43:3: ( expr | for_in_statement )", 2, 0, input);
 
                 throw nvae;
             }
             switch (alt2) {
                 case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:41:5: expr
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:43:5: expr
                     {
                     pushFollow(FOLLOW_expr_in_statement75);
                     expr();
@@ -155,7 +157,7 @@ public class JFDIParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:42:5: for_in_statement
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:44:5: for_in_statement
                     {
                     pushFollow(FOLLOW_for_in_statement_in_statement81);
                     for_in_statement();
@@ -183,11 +185,11 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start statement_block
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:46:1: statement_block : '{' statements '}' ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:48:1: statement_block : '{' statements '}' ;
     public void statement_block() throws RecognitionException {   
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:48:3: ( '{' statements '}' )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:48:3: '{' statements '}'
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:50:3: ( '{' statements '}' )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:50:3: '{' statements '}'
             {
             match(input,8,FOLLOW_8_in_statement_block99); if (failed) return ;
             pushFollow(FOLLOW_statements_in_statement_block101);
@@ -211,11 +213,11 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start for_in_statement
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:51:1: for_in_statement : 'for' IDENT 'in' expr statement_block ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:53:1: for_in_statement : 'for' IDENT 'in' expr statement_block ;
     public void for_in_statement() throws RecognitionException {   
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:53:3: ( 'for' IDENT 'in' expr statement_block )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:53:3: 'for' IDENT 'in' expr statement_block
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:55:3: ( 'for' IDENT 'in' expr statement_block )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:55:3: 'for' IDENT 'in' expr statement_block
             {
             match(input,10,FOLLOW_10_in_for_in_statement117); if (failed) return ;
             match(input,IDENT,FOLLOW_IDENT_in_for_in_statement119); if (failed) return ;
@@ -244,11 +246,11 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start assignment_statement
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:56:1: assignment_statement : object_expr '=' expr ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:58:1: assignment_statement : object_expr '=' expr ;
     public void assignment_statement() throws RecognitionException {   
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:58:3: ( object_expr '=' expr )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:58:3: object_expr '=' expr
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:60:3: ( object_expr '=' expr )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:60:3: object_expr '=' expr
             {
             pushFollow(FOLLOW_object_expr_in_assignment_statement138);
             object_expr();
@@ -275,7 +277,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start expr
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:61:1: expr returns [Expr e] : ex= logical_or_expr ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:63:1: expr returns [Expr e] : ex= logical_or_expr ;
     public Expr expr() throws RecognitionException {   
         Expr e = null;
 
@@ -286,8 +288,8 @@ public class JFDIParser extends Parser {
         		e = null;
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:66:3: (ex= logical_or_expr )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:66:3: ex= logical_or_expr
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:68:3: (ex= logical_or_expr )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:68:3: ex= logical_or_expr
             {
             pushFollow(FOLLOW_logical_or_expr_in_expr168);
             ex=logical_or_expr();
@@ -312,7 +314,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start logical_or_expr
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:69:1: logical_or_expr returns [Expr e] : lhs= logical_and_expr ( '||' rhs= logical_and_expr )* ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:71:1: logical_or_expr returns [Expr e] : lhs= logical_and_expr ( '||' rhs= logical_and_expr )* ;
     public Expr logical_or_expr() throws RecognitionException {   
         Expr e = null;
 
@@ -325,8 +327,8 @@ public class JFDIParser extends Parser {
         		e = null;
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:74:3: (lhs= logical_and_expr ( '||' rhs= logical_and_expr )* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:74:3: lhs= logical_and_expr ( '||' rhs= logical_and_expr )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:76:3: (lhs= logical_and_expr ( '||' rhs= logical_and_expr )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:76:3: lhs= logical_and_expr ( '||' rhs= logical_and_expr )*
             {
             pushFollow(FOLLOW_logical_and_expr_in_logical_or_expr196);
             lhs=logical_and_expr();
@@ -335,7 +337,7 @@ public class JFDIParser extends Parser {
             if ( backtracking==0 ) {
                e = lhs; 
             }
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:75:3: ( '||' rhs= logical_and_expr )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:77:3: ( '||' rhs= logical_and_expr )*
             loop3:
             do {
                 int alt3=2;
@@ -347,7 +349,7 @@ public class JFDIParser extends Parser {
 
                 switch (alt3) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:75:5: '||' rhs= logical_and_expr
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:77:5: '||' rhs= logical_and_expr
             	    {
             	    match(input,13,FOLLOW_13_in_logical_or_expr204); if (failed) return e;
             	    pushFollow(FOLLOW_logical_and_expr_in_logical_or_expr208);
@@ -382,7 +384,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start logical_and_expr
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:80:1: logical_and_expr returns [Expr e] : lhs= additive_expr ( '&&' rhs= additive_expr )* ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:82:1: logical_and_expr returns [Expr e] : lhs= additive_expr ( '&&' rhs= additive_expr )* ;
     public Expr logical_and_expr() throws RecognitionException {   
         Expr e = null;
 
@@ -395,8 +397,8 @@ public class JFDIParser extends Parser {
         		e = null;
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:85:3: (lhs= additive_expr ( '&&' rhs= additive_expr )* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:85:3: lhs= additive_expr ( '&&' rhs= additive_expr )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:87:3: (lhs= additive_expr ( '&&' rhs= additive_expr )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:87:3: lhs= additive_expr ( '&&' rhs= additive_expr )*
             {
             pushFollow(FOLLOW_additive_expr_in_logical_and_expr245);
             lhs=additive_expr();
@@ -405,7 +407,7 @@ public class JFDIParser extends Parser {
             if ( backtracking==0 ) {
                e = lhs; 
             }
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:86:3: ( '&&' rhs= additive_expr )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:88:3: ( '&&' rhs= additive_expr )*
             loop4:
             do {
                 int alt4=2;
@@ -417,7 +419,7 @@ public class JFDIParser extends Parser {
 
                 switch (alt4) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:86:5: '&&' rhs= additive_expr
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:88:5: '&&' rhs= additive_expr
             	    {
             	    match(input,14,FOLLOW_14_in_logical_and_expr253); if (failed) return e;
             	    pushFollow(FOLLOW_additive_expr_in_logical_and_expr257);
@@ -452,7 +454,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start additive_expr
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:92:1: additive_expr returns [Expr e] : lhs= multiplicative_expr ( ( '+' | '-' ) rhs= multiplicative_expr )* ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:94:1: additive_expr returns [Expr e] : lhs= multiplicative_expr ( ( '+' | '-' ) rhs= multiplicative_expr )* ;
     public Expr additive_expr() throws RecognitionException {   
         Expr e = null;
 
@@ -466,8 +468,8 @@ public class JFDIParser extends Parser {
         		AdditiveExpr.Operator op = null;
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:98:3: (lhs= multiplicative_expr ( ( '+' | '-' ) rhs= multiplicative_expr )* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:98:3: lhs= multiplicative_expr ( ( '+' | '-' ) rhs= multiplicative_expr )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:100:3: (lhs= multiplicative_expr ( ( '+' | '-' ) rhs= multiplicative_expr )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:100:3: lhs= multiplicative_expr ( ( '+' | '-' ) rhs= multiplicative_expr )*
             {
             pushFollow(FOLLOW_multiplicative_expr_in_additive_expr295);
             lhs=multiplicative_expr();
@@ -476,7 +478,7 @@ public class JFDIParser extends Parser {
             if ( backtracking==0 ) {
                e = lhs; 
             }
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:99:3: ( ( '+' | '-' ) rhs= multiplicative_expr )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:101:3: ( ( '+' | '-' ) rhs= multiplicative_expr )*
             loop6:
             do {
                 int alt6=2;
@@ -488,9 +490,9 @@ public class JFDIParser extends Parser {
 
                 switch (alt6) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:100:4: ( '+' | '-' ) rhs= multiplicative_expr
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:102:4: ( '+' | '-' ) rhs= multiplicative_expr
             	    {
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:100:4: ( '+' | '-' )
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:102:4: ( '+' | '-' )
             	    int alt5=2;
             	    int LA5_0 = input.LA(1);
             	    if ( (LA5_0==15) ) {
@@ -502,13 +504,13 @@ public class JFDIParser extends Parser {
             	    else {
             	        if (backtracking>0) {failed=true; return e;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("100:4: ( '+' | '-' )", 5, 0, input);
+            	            new NoViableAltException("102:4: ( '+' | '-' )", 5, 0, input);
 
             	        throw nvae;
             	    }
             	    switch (alt5) {
             	        case 1 :
-            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:100:6: '+'
+            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:102:6: '+'
             	            {
             	            match(input,15,FOLLOW_15_in_additive_expr309); if (failed) return e;
             	            if ( backtracking==0 ) {
@@ -518,7 +520,7 @@ public class JFDIParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:101:6: '-'
+            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:103:6: '-'
             	            {
             	            match(input,16,FOLLOW_16_in_additive_expr318); if (failed) return e;
             	            if ( backtracking==0 ) {
@@ -565,7 +567,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start multiplicative_expr
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:109:1: multiplicative_expr returns [Expr e] : lhs= atom ( ( '*' | '/' ) rhs= atom )* ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:111:1: multiplicative_expr returns [Expr e] : lhs= atom ( ( '*' | '/' ) rhs= atom )* ;
     public Expr multiplicative_expr() throws RecognitionException {   
         Expr e = null;
 
@@ -579,8 +581,8 @@ public class JFDIParser extends Parser {
         		MultiplicativeExpr.Operator op = null;
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:115:3: (lhs= atom ( ( '*' | '/' ) rhs= atom )* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:115:3: lhs= atom ( ( '*' | '/' ) rhs= atom )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:117:3: (lhs= atom ( ( '*' | '/' ) rhs= atom )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:117:3: lhs= atom ( ( '*' | '/' ) rhs= atom )*
             {
             pushFollow(FOLLOW_atom_in_multiplicative_expr373);
             lhs=atom();
@@ -589,7 +591,7 @@ public class JFDIParser extends Parser {
             if ( backtracking==0 ) {
                e = lhs; 
             }
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:116:3: ( ( '*' | '/' ) rhs= atom )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:118:3: ( ( '*' | '/' ) rhs= atom )*
             loop8:
             do {
                 int alt8=2;
@@ -601,9 +603,9 @@ public class JFDIParser extends Parser {
 
                 switch (alt8) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:117:4: ( '*' | '/' ) rhs= atom
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:119:4: ( '*' | '/' ) rhs= atom
             	    {
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:117:4: ( '*' | '/' )
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:119:4: ( '*' | '/' )
             	    int alt7=2;
             	    int LA7_0 = input.LA(1);
             	    if ( (LA7_0==17) ) {
@@ -615,13 +617,13 @@ public class JFDIParser extends Parser {
             	    else {
             	        if (backtracking>0) {failed=true; return e;}
             	        NoViableAltException nvae =
-            	            new NoViableAltException("117:4: ( '*' | '/' )", 7, 0, input);
+            	            new NoViableAltException("119:4: ( '*' | '/' )", 7, 0, input);
 
             	        throw nvae;
             	    }
             	    switch (alt7) {
             	        case 1 :
-            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:117:6: '*'
+            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:119:6: '*'
             	            {
             	            match(input,17,FOLLOW_17_in_multiplicative_expr386); if (failed) return e;
             	            if ( backtracking==0 ) {
@@ -631,7 +633,7 @@ public class JFDIParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:118:6: '/'
+            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:120:6: '/'
             	            {
             	            match(input,18,FOLLOW_18_in_multiplicative_expr396); if (failed) return e;
             	            if ( backtracking==0 ) {
@@ -678,7 +680,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start atom
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:126:1: atom returns [Expr e] : (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr ) ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:128:1: atom returns [Expr e] : (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr ) ;
     public Expr atom() throws RecognitionException {   
         Expr e = null;
 
@@ -692,10 +694,10 @@ public class JFDIParser extends Parser {
         		e = null;
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:131:3: ( (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr ) )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:131:3: (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:133:3: ( (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr ) )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:133:3: (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr )
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:131:3: (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:133:3: (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr )
             int alt9=7;
             switch ( input.LA(1) ) {
             case INTEGER:
@@ -722,14 +724,14 @@ public class JFDIParser extends Parser {
             default:
                 if (backtracking>0) {failed=true; return e;}
                 NoViableAltException nvae =
-                    new NoViableAltException("131:3: (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr )", 9, 0, input);
+                    new NoViableAltException("133:3: (i= INTEGER | s= STRING | f= FLOAT | 'true' | 'false' | '(' ex= expr ')' | ex= object_expr )", 9, 0, input);
 
                 throw nvae;
             }
 
             switch (alt9) {
                 case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:131:5: i= INTEGER
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:133:5: i= INTEGER
                     {
                     i=(Token)input.LT(1);
                     match(input,INTEGER,FOLLOW_INTEGER_in_atom453); if (failed) return e;
@@ -740,7 +742,7 @@ public class JFDIParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:132:5: s= STRING
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:134:5: s= STRING
                     {
                     s=(Token)input.LT(1);
                     match(input,STRING,FOLLOW_STRING_in_atom463); if (failed) return e;
@@ -751,7 +753,7 @@ public class JFDIParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:133:5: f= FLOAT
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:135:5: f= FLOAT
                     {
                     f=(Token)input.LT(1);
                     match(input,FLOAT,FOLLOW_FLOAT_in_atom474); if (failed) return e;
@@ -762,7 +764,7 @@ public class JFDIParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:134:5: 'true'
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:136:5: 'true'
                     {
                     match(input,19,FOLLOW_19_in_atom484); if (failed) return e;
                     if ( backtracking==0 ) {
@@ -772,7 +774,7 @@ public class JFDIParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:135:5: 'false'
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:137:5: 'false'
                     {
                     match(input,20,FOLLOW_20_in_atom495); if (failed) return e;
                     if ( backtracking==0 ) {
@@ -782,7 +784,7 @@ public class JFDIParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:136:5: '(' ex= expr ')'
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:138:5: '(' ex= expr ')'
                     {
                     match(input,21,FOLLOW_21_in_atom505); if (failed) return e;
                     pushFollow(FOLLOW_expr_in_atom509);
@@ -797,7 +799,7 @@ public class JFDIParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:137:5: ex= object_expr
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:139:5: ex= object_expr
                     {
                     pushFollow(FOLLOW_object_expr_in_atom521);
                     ex=object_expr();
@@ -831,166 +833,59 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start arg_list
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:142:1: arg_list : ( IDENT '=' expr ( ',' IDENT '=' expr )+ ( ',' )? | expr ( ',' expr )* | ) ;
-    public void arg_list() throws RecognitionException {   
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:1: arg_list returns [List args] : first= expr ( ',' other= expr )* ;
+    public List arg_list() throws RecognitionException {   
+        List args = null;
+
+        Expr first = null;
+
+        Expr other = null;
+
+
+
+        		args = new ArrayList();
+        	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:3: ( ( IDENT '=' expr ( ',' IDENT '=' expr )+ ( ',' )? | expr ( ',' expr )* | ) )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:3: ( IDENT '=' expr ( ',' IDENT '=' expr )+ ( ',' )? | expr ( ',' expr )* | )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:149:3: (first= expr ( ',' other= expr )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:149:3: first= expr ( ',' other= expr )*
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:3: ( IDENT '=' expr ( ',' IDENT '=' expr )+ ( ',' )? | expr ( ',' expr )* | )
-            int alt13=3;
-            switch ( input.LA(1) ) {
-            case IDENT:
-                int LA13_1 = input.LA(2);
-                if ( (LA13_1==12) ) {
-                    alt13=1;
-                }
-                else if ( ((LA13_1>=13 && LA13_1<=18)||(LA13_1>=22 && LA13_1<=24)||LA13_1==26) ) {
-                    alt13=2;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("144:3: ( IDENT '=' expr ( ',' IDENT '=' expr )+ ( ',' )? | expr ( ',' expr )* | )", 13, 1, input);
-
-                    throw nvae;
-                }
-                break;
-            case INTEGER:
-            case STRING:
-            case FLOAT:
-            case 19:
-            case 20:
-            case 21:
-                alt13=2;
-                break;
-            case 22:
-                alt13=3;
-                break;
-            default:
-                if (backtracking>0) {failed=true; return ;}
-                NoViableAltException nvae =
-                    new NoViableAltException("144:3: ( IDENT '=' expr ( ',' IDENT '=' expr )+ ( ',' )? | expr ( ',' expr )* | )", 13, 0, input);
-
-                throw nvae;
+            pushFollow(FOLLOW_expr_in_arg_list559);
+            first=expr();
+            _fsp--;
+            if (failed) return args;
+            if ( backtracking==0 ) {
+               args.add( first ); 
             }
-
-            switch (alt13) {
-                case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:5: IDENT '=' expr ( ',' IDENT '=' expr )+ ( ',' )?
-                    {
-                    match(input,IDENT,FOLLOW_IDENT_in_arg_list549); if (failed) return ;
-                    match(input,12,FOLLOW_12_in_arg_list551); if (failed) return ;
-                    pushFollow(FOLLOW_expr_in_arg_list553);
-                    expr();
-                    _fsp--;
-                    if (failed) return ;
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:20: ( ',' IDENT '=' expr )+
-                    int cnt10=0;
-                    loop10:
-                    do {
-                        int alt10=2;
-                        int LA10_0 = input.LA(1);
-                        if ( (LA10_0==23) ) {
-                            int LA10_1 = input.LA(2);
-                            if ( (LA10_1==IDENT) ) {
-                                alt10=1;
-                            }
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:150:3: ( ',' other= expr )*
+            loop10:
+            do {
+                int alt10=2;
+                int LA10_0 = input.LA(1);
+                if ( (LA10_0==23) ) {
+                    alt10=1;
+                }
 
 
-                        }
+                switch (alt10) {
+            	case 1 :
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:150:6: ',' other= expr
+            	    {
+            	    match(input,23,FOLLOW_23_in_arg_list569); if (failed) return args;
+            	    pushFollow(FOLLOW_expr_in_arg_list573);
+            	    other=expr();
+            	    _fsp--;
+            	    if (failed) return args;
+            	    if ( backtracking==0 ) {
+            	       args.add( other ); 
+            	    }
 
+            	    }
+            	    break;
 
-                        switch (alt10) {
-                    	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:22: ',' IDENT '=' expr
-                    	    {
-                    	    match(input,23,FOLLOW_23_in_arg_list557); if (failed) return ;
-                    	    match(input,IDENT,FOLLOW_IDENT_in_arg_list559); if (failed) return ;
-                    	    match(input,12,FOLLOW_12_in_arg_list561); if (failed) return ;
-                    	    pushFollow(FOLLOW_expr_in_arg_list563);
-                    	    expr();
-                    	    _fsp--;
-                    	    if (failed) return ;
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    if ( cnt10 >= 1 ) break loop10;
-                    	    if (backtracking>0) {failed=true; return ;}
-                                EarlyExitException eee =
-                                    new EarlyExitException(10, input);
-                                throw eee;
-                        }
-                        cnt10++;
-                    } while (true);
-
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:44: ( ',' )?
-                    int alt11=2;
-                    int LA11_0 = input.LA(1);
-                    if ( (LA11_0==23) ) {
-                        alt11=1;
-                    }
-                    switch (alt11) {
-                        case 1 :
-                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:144:44: ','
-                            {
-                            match(input,23,FOLLOW_23_in_arg_list568); if (failed) return ;
-
-                            }
-                            break;
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:145:5: expr ( ',' expr )*
-                    {
-                    pushFollow(FOLLOW_expr_in_arg_list575);
-                    expr();
-                    _fsp--;
-                    if (failed) return ;
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:145:10: ( ',' expr )*
-                    loop12:
-                    do {
-                        int alt12=2;
-                        int LA12_0 = input.LA(1);
-                        if ( (LA12_0==23) ) {
-                            alt12=1;
-                        }
-
-
-                        switch (alt12) {
-                    	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:145:12: ',' expr
-                    	    {
-                    	    match(input,23,FOLLOW_23_in_arg_list579); if (failed) return ;
-                    	    pushFollow(FOLLOW_expr_in_arg_list581);
-                    	    expr();
-                    	    _fsp--;
-                    	    if (failed) return ;
-
-                    	    }
-                    	    break;
-
-                    	default :
-                    	    break loop12;
-                        }
-                    } while (true);
-
-
-                    }
-                    break;
-                case 3 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:147:3: 
-                    {
-                    }
-                    break;
-
-            }
+            	default :
+            	    break loop10;
+                }
+            } while (true);
 
 
             }
@@ -1002,79 +897,107 @@ public class JFDIParser extends Parser {
         }
         finally {
         }
-        return ;
+        return args;
     }
     // $ANTLR end arg_list
 
 
     // $ANTLR start object_expr
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:150:1: object_expr returns [Expr e] : i= IDENT ( '[' expr ']' | ( '.' IDENT '(' )=> '.' IDENT ( '(' arg_list ')' ) )* ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:155:1: object_expr returns [Expr e] : i= IDENT ( '[' expr ']' | ( '.' IDENT '(' )=> '.' m= IDENT '(' (a= arg_list )? ')' )* ;
     public Expr object_expr() throws RecognitionException {   
         Expr e = null;
 
         Token i=null;
+        Token m=null;
+        List a = null;
+
 
 
         		e = null;
+        		Expr[] paramExprs = new Expr[0];
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:155:3: (i= IDENT ( '[' expr ']' | ( '.' IDENT '(' )=> '.' IDENT ( '(' arg_list ')' ) )* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:155:3: i= IDENT ( '[' expr ']' | ( '.' IDENT '(' )=> '.' IDENT ( '(' arg_list ')' ) )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:161:3: (i= IDENT ( '[' expr ']' | ( '.' IDENT '(' )=> '.' m= IDENT '(' (a= arg_list )? ')' )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:161:3: i= IDENT ( '[' expr ']' | ( '.' IDENT '(' )=> '.' m= IDENT '(' (a= arg_list )? ')' )*
             {
             i=(Token)input.LT(1);
-            match(input,IDENT,FOLLOW_IDENT_in_object_expr620); if (failed) return e;
+            match(input,IDENT,FOLLOW_IDENT_in_object_expr610); if (failed) return e;
             if ( backtracking==0 ) {
                e = factory.createExternalVariable( i.getText() ); 
             }
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:156:3: ( '[' expr ']' | ( '.' IDENT '(' )=> '.' IDENT ( '(' arg_list ')' ) )*
-            loop14:
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:162:3: ( '[' expr ']' | ( '.' IDENT '(' )=> '.' m= IDENT '(' (a= arg_list )? ')' )*
+            loop12:
             do {
-                int alt14=3;
-                int LA14_0 = input.LA(1);
-                if ( (LA14_0==24) ) {
-                    alt14=1;
+                int alt12=3;
+                int LA12_0 = input.LA(1);
+                if ( (LA12_0==24) ) {
+                    alt12=1;
                 }
-                else if ( (LA14_0==26) ) {
-                    alt14=2;
+                else if ( (LA12_0==26) ) {
+                    alt12=2;
                 }
 
 
-                switch (alt14) {
+                switch (alt12) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:156:5: '[' expr ']'
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:162:5: '[' expr ']'
             	    {
-            	    match(input,24,FOLLOW_24_in_object_expr628); if (failed) return e;
-            	    pushFollow(FOLLOW_expr_in_object_expr630);
+            	    match(input,24,FOLLOW_24_in_object_expr618); if (failed) return e;
+            	    pushFollow(FOLLOW_expr_in_object_expr620);
             	    expr();
             	    _fsp--;
             	    if (failed) return e;
-            	    match(input,25,FOLLOW_25_in_object_expr632); if (failed) return e;
+            	    match(input,25,FOLLOW_25_in_object_expr622); if (failed) return e;
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:157:5: ( '.' IDENT '(' )=> '.' IDENT ( '(' arg_list ')' )
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:163:5: ( '.' IDENT '(' )=> '.' m= IDENT '(' (a= arg_list )? ')'
             	    {
-            	    match(input,26,FOLLOW_26_in_object_expr647); if (failed) return e;
-            	    match(input,IDENT,FOLLOW_IDENT_in_object_expr649); if (failed) return e;
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:157:33: ( '(' arg_list ')' )
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:157:34: '(' arg_list ')'
-            	    {
-            	    match(input,21,FOLLOW_21_in_object_expr652); if (failed) return e;
-            	    pushFollow(FOLLOW_arg_list_in_object_expr654);
-            	    arg_list();
-            	    _fsp--;
-            	    if (failed) return e;
-            	    match(input,22,FOLLOW_22_in_object_expr656); if (failed) return e;
+            	    match(input,26,FOLLOW_26_in_object_expr643); if (failed) return e;
+            	    m=(Token)input.LT(1);
+            	    match(input,IDENT,FOLLOW_IDENT_in_object_expr647); if (failed) return e;
+            	    match(input,21,FOLLOW_21_in_object_expr649); if (failed) return e;
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:165:5: (a= arg_list )?
+            	    int alt11=2;
+            	    int LA11_0 = input.LA(1);
+            	    if ( ((LA11_0>=IDENT && LA11_0<=FLOAT)||(LA11_0>=19 && LA11_0<=21)) ) {
+            	        alt11=1;
+            	    }
+            	    switch (alt11) {
+            	        case 1 :
+            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:165:7: a= arg_list
+            	            {
+            	            pushFollow(FOLLOW_arg_list_in_object_expr659);
+            	            a=arg_list();
+            	            _fsp--;
+            	            if (failed) return e;
+            	            if ( backtracking==0 ) {
+
+            	              						paramExprs = new Expr[ a.size() ];
+            	              						for ( int j = 0 ; j < paramExprs.length ; ++j ) {
+            	              							paramExprs[j] = (Expr) a.get( j );
+            	              						} 
+            	              					
+            	            }
+
+            	            }
+            	            break;
 
             	    }
 
+            	    match(input,22,FOLLOW_22_in_object_expr675); if (failed) return e;
+            	    if ( backtracking==0 ) {
+
+            	      				e = new MethodCall( e, m.getText(), paramExprs );
+            	      			
+            	    }
 
             	    }
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop12;
                 }
             } while (true);
 
@@ -1134,25 +1057,17 @@ public class JFDIParser extends Parser {
     public static final BitSet FOLLOW_expr_in_atom509 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_22_in_atom511 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_object_expr_in_atom521 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_arg_list549 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_arg_list551 = new BitSet(new long[]{0x00000000003800F0L});
-    public static final BitSet FOLLOW_expr_in_arg_list553 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_arg_list557 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_IDENT_in_arg_list559 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_arg_list561 = new BitSet(new long[]{0x00000000003800F0L});
-    public static final BitSet FOLLOW_expr_in_arg_list563 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_arg_list568 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expr_in_arg_list575 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_23_in_arg_list579 = new BitSet(new long[]{0x00000000003800F0L});
-    public static final BitSet FOLLOW_expr_in_arg_list581 = new BitSet(new long[]{0x0000000000800002L});
-    public static final BitSet FOLLOW_IDENT_in_object_expr620 = new BitSet(new long[]{0x0000000005000002L});
-    public static final BitSet FOLLOW_24_in_object_expr628 = new BitSet(new long[]{0x00000000003800F0L});
-    public static final BitSet FOLLOW_expr_in_object_expr630 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_object_expr632 = new BitSet(new long[]{0x0000000005000002L});
-    public static final BitSet FOLLOW_26_in_object_expr647 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_IDENT_in_object_expr649 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_21_in_object_expr652 = new BitSet(new long[]{0x00000000007800F0L});
-    public static final BitSet FOLLOW_arg_list_in_object_expr654 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_22_in_object_expr656 = new BitSet(new long[]{0x0000000005000002L});
+    public static final BitSet FOLLOW_expr_in_arg_list559 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_23_in_arg_list569 = new BitSet(new long[]{0x00000000003800F0L});
+    public static final BitSet FOLLOW_expr_in_arg_list573 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_IDENT_in_object_expr610 = new BitSet(new long[]{0x0000000005000002L});
+    public static final BitSet FOLLOW_24_in_object_expr618 = new BitSet(new long[]{0x00000000003800F0L});
+    public static final BitSet FOLLOW_expr_in_object_expr620 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_object_expr622 = new BitSet(new long[]{0x0000000005000002L});
+    public static final BitSet FOLLOW_26_in_object_expr643 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_IDENT_in_object_expr647 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_21_in_object_expr649 = new BitSet(new long[]{0x00000000007800F0L});
+    public static final BitSet FOLLOW_arg_list_in_object_expr659 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_22_in_object_expr675 = new BitSet(new long[]{0x0000000005000002L});
 
 }

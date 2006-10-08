@@ -9,7 +9,7 @@ import java.util.Date;
 public class MethodInvoker {
     private Method                     method;
     private boolean                    isFunction;
-    private final ValueHandler[]       valueHandlers;
+    private final Object[]             params;
     private Class[]                    parameterTypes;
 
     /**
@@ -17,9 +17,9 @@ public class MethodInvoker {
      */
     public MethodInvoker(Method method,
                          boolean isFunction,
-                         ValueHandler[] valueHandlers) {
+                         Object[] params) {
         this.method = method;
-        this.valueHandlers = valueHandlers;
+        this.params = params;
         this.isFunction = isFunction;
     }
 
@@ -29,15 +29,6 @@ public class MethodInvoker {
 
         
         
-        //the args values that we will pass
-        Object[] args = new Object[this.valueHandlers.length];
-
-        //now we need to set all the values, convert if literal
-        for ( int i = 0; i < this.valueHandlers.length; i++ ) {
-            ValueHandler handler = valueHandlers[i];
-            args[i] = handler.getValue(  );
-        }
-
         // None static methods cannot have a null instance
         if ( !isFunction && instance == null ) {
             throw new NullPointerException( "Cannot call the non-static method [" + this.method.getName() + "] on the class [" + this.method.getDeclaringClass().getName() + " with a null instance" );
@@ -47,7 +38,7 @@ public class MethodInvoker {
         
         //now the actual invoking of the method
         result = this.method.invoke( instance,
-                                     args );
+                                     params );
 
         return result;
     }

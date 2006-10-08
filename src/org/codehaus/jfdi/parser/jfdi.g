@@ -4,6 +4,8 @@ grammar JFDIParser;
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
 	import org.codehaus.jfdi.interpreter.operations.*;
+	import java.util.List;
+	import java.util.ArrayList;
 }
 
 @parser::members {
@@ -139,22 +141,38 @@ atom returns [Expr e]
 		{System.err.println( "atom returns " + e ); }
 	;
 	
-arg_list
+arg_list returns [List args]
+	@init {
+		args = new ArrayList();
+	}
 	:	
-		(	IDENT '=' expr ( ',' IDENT '=' expr )+ ','?
-		|	expr ( ',' expr )*
-		|	/* empty production */
-		)
+		first=expr { args.add( first ); } 
+		( 	',' other=expr
+			 { args.add( other ); }
+		)*
 	;
 	
 object_expr returns [Expr e]
 	@init {
 		e = null;
+		Expr[] paramExprs = new Expr[0];
 	}
 	:
 		i=IDENT { e = factory.createExternalVariable( i.getText() ); }
 		(	'[' expr ']'
-		| ('.' IDENT '(')=> '.' IDENT ('(' arg_list ')')
+		|	( '.' IDENT '(' )=> 
+			'.' m=IDENT '('
+				(	a=arg_list
+					{
+						paramExprs = new Expr[ a.size() ];
+						for ( int j = 0 ; j < paramExprs.length ; ++j ) {
+							paramExprs[j] = (Expr) a.get( j );
+						} 
+					}
+				)? ')' 
+			{
+				e = new MethodCall( e, m.getText(), paramExprs );
+			}
 		)*
 	;
 	
