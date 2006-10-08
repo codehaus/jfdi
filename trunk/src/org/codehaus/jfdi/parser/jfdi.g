@@ -7,6 +7,17 @@ grammar JFDIParser;
 }
 
 @parser::members {
+
+	private ValueHandlerFactory factory;
+	
+	public void setValueHandlerFactory(ValueHandlerFactory factory) {
+		this.factory = factory;
+	}
+	
+	public ValueHandlerFactory getValueHandlerFactory() {
+		return this.factory;
+	}
+	
 }
 
 @lexer::header {
@@ -117,11 +128,11 @@ atom returns [Expr e]
 		e = null;
 	}
 	:
-		(	i=INTEGER { e = new LiteralValue( new Integer( i.getText() ) ); }
-		|	s=STRING  { e = new LiteralValue( s.getText().substring( 1, s.getText().length()-1 ) ); }
-		|	f=FLOAT   { e = new LiteralValue( new Double( f.getText() ) ); }
-		|	'true'    { e = new LiteralValue( Boolean.TRUE ); }
-		|	'false'   { e = new LiteralValue( Boolean.FALSE ); }
+		(	i=INTEGER { e = factory.createLiteral( java.lang.Integer.class, i.getText() ); }
+		|	s=STRING  { e = factory.createLiteral( java.lang.String.class,  s.getText().substring( 1, s.getText().length()-1 ) ); }
+		|	f=FLOAT   { e = factory.createLiteral( java.lang.Double.class,   f.getText() ); }
+		|	'true'    { e = factory.createLiteral( java.lang.Boolean.class, "true" ); }
+		|	'false'   { e = factory.createLiteral( java.lang.Boolean.class, "false" ); }
 		|	'(' ex=expr ')' { e = ex; }
 		|	ex=object_expr  { e = ex; }
 		)
@@ -141,7 +152,7 @@ object_expr returns [Expr e]
 		e = null;
 	}
 	:
-		IDENT
+		i=IDENT { e = factory.createExternalVariable( i.getText() ); }
 		(	'[' expr ']'
 		| ('.' IDENT '(')=> '.' IDENT ('(' arg_list ')')
 		)*

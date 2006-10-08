@@ -43,5 +43,15 @@ public class AtomTest extends JfdiParserTestCase {
 		
 		assertEquals( Boolean.TRUE, result.getValue() );
 	}
+	
+	public void testVariable() throws Exception {
+		addVariable( "foo", new Integer(42) );
+		JFDIParser parser = createParser( "foo" );
+		
+		ValueHandler result = (ValueHandler) parser.atom();
+		
+		assertEquals( 42, ((Integer)result.getValue()).intValue() );
+	}
+	
 
 }
