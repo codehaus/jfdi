@@ -4,8 +4,9 @@ package org.codehaus.jfdi.interpreter;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
+
+import org.codehaus.jfdi.interpreter.operations.Expr;
 
 
 
@@ -25,11 +26,11 @@ public class MethodResolver {
     private MethodResolver() {
     }
     
-    public Method resolveMethod(Class clazz, String name, ValueHandler[] params) {
+    public Method resolveMethod(Class clazz, String name, Object[] params) {
         
         Class[]  classes  = new Class[params.length];
         for ( int i = 0, length  = params.length; i  < length; i++ )  {
-            classes[i]   = params[i].getType();
+            classes[i] = params[i].getClass();
         }
         
         return  resolveMethod(clazz, name, classes);
