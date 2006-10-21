@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.codehaus.jfdi.interpreter.operations.Expr;
+
 public class AnonMapValue
     implements
     ValueHandler {
@@ -27,8 +29,8 @@ public class AnonMapValue
             final Map map = new HashMap();
     
             for ( int i = 0, length = this.pairs.length; i < length; i++ ) {
-                final ValueHandler key = this.pairs[i].getKey();
-                final ValueHandler value = this.pairs[i].getValue();
+                final Expr key = this.pairs[i].getKey();
+                final Expr value = this.pairs[i].getValue();
                 map.put( key.getValue(  ),
                          value.getValue( ) );
             }
@@ -49,11 +51,11 @@ public class AnonMapValue
     public static class KeyValuePair implements Serializable {
         private static final long serialVersionUID = 320L;
         
-        private ValueHandler key;
-        private ValueHandler value;
+        private Expr key;
+        private Expr value;
 
-        public KeyValuePair(final ValueHandler key,
-                            final ValueHandler value) {
+        public KeyValuePair(final Expr key,
+                            final Expr value) {
             this.key = key;
             this.value = value;
         }
@@ -62,7 +64,7 @@ public class AnonMapValue
          * 
          * @return The ValueHandler for the key
          */
-        public ValueHandler getKey() {
+        public Expr getKey() {
             return this.key;
         }
 
@@ -70,7 +72,7 @@ public class AnonMapValue
          * 
          * @return The ValueHandler for the value
          */
-        public ValueHandler getValue() {
+        public Expr getValue() {
             return this.value;
         }
         

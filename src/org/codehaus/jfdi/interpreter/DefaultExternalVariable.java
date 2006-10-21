@@ -23,7 +23,7 @@ public class DefaultExternalVariable
     }
 
     public Class getType() {
-        return this.type;
+        return getValue().getClass();
     }
 
     public Object getValue() {

@@ -178,13 +178,30 @@ object_expr returns [Expr e]
 	;
 	
 
-/*	
-map
+
+map returns [AnonMapValue m]
+	@init {
+		m = null;
+		List pairs = new ArrayList();
+	}
 	:
 		'{'
+			(	k=expr '=>' v=expr 
+				{
+					pairs.add( new AnonMapValue.KeyValuePair( k, v ) );
+				}
+				(	',' 
+					k=expr '=>' v=expr 
+				)*
+				','? 
+			)?
 		'}'
+		{
+			m = new AnonMapValue( (AnonMapValue.KeyValuePair[]) pairs.toArray( new AnonMapValue.KeyValuePair[ pairs.size() ] ) );
+		}
 	;
-	
+
+/*	
 array 
 	:
 		'[' ( expr ( ',' expr )* ','? )? ']'

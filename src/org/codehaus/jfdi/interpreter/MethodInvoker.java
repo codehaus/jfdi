@@ -36,6 +36,9 @@ public class MethodInvoker {
 
         Object result = null;
         
+        System.err.println( "invoke on " + instance );
+        System.err.println( "invoke of " + method );
+        
         //now the actual invoking of the method
         result = this.method.invoke( instance,
                                      params );
