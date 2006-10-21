@@ -13,5 +13,4 @@ public interface ValueHandler extends Expr {
     boolean isFinal();
     boolean isLiteral();
     
-    Class getType();
 }

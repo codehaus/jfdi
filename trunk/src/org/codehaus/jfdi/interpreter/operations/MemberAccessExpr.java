@@ -22,5 +22,9 @@ public class MemberAccessExpr implements Expr {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public Class getType() {
+		return Object.class;
+	}
 
 }
