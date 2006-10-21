@@ -1,4 +1,4 @@
-// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-21 14:27:45
+// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-21 14:40:39
 
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
@@ -1056,11 +1056,9 @@ public class JFDIParser extends Parser {
                     _fsp--;
                     if (failed) return m;
                     if ( backtracking==0 ) {
-
-                      					pairs.add( new AnonMapValue.KeyValuePair( k, v ) );
-                      				
+                       pairs.add( new AnonMapValue.KeyValuePair( k, v ) ); 
                     }
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:193:5: ( ',' k= expr '=>' v= expr )*
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:191:5: ( ',' k= expr '=>' v= expr )*
                     loop13:
                     do {
                         int alt13=2;
@@ -1077,7 +1075,7 @@ public class JFDIParser extends Parser {
 
                         switch (alt13) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:193:7: ',' k= expr '=>' v= expr
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:191:7: ',' k= expr '=>' v= expr
                     	    {
                     	    match(input,23,FOLLOW_23_in_map742); if (failed) return m;
                     	    pushFollow(FOLLOW_expr_in_map752);
@@ -1089,6 +1087,9 @@ public class JFDIParser extends Parser {
                     	    v=expr();
                     	    _fsp--;
                     	    if (failed) return m;
+                    	    if ( backtracking==0 ) {
+                    	       pairs.add( new AnonMapValue.KeyValuePair( k, v ) ); 
+                    	    }
 
                     	    }
                     	    break;
@@ -1098,7 +1099,7 @@ public class JFDIParser extends Parser {
                         }
                     } while (true);
 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:196:5: ( ',' )?
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:195:5: ( ',' )?
                     int alt14=2;
                     int LA14_0 = input.LA(1);
                     if ( (LA14_0==23) ) {
@@ -1106,9 +1107,9 @@ public class JFDIParser extends Parser {
                     }
                     switch (alt14) {
                         case 1 :
-                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:196:5: ','
+                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:195:5: ','
                             {
-                            match(input,23,FOLLOW_23_in_map772); if (failed) return m;
+                            match(input,23,FOLLOW_23_in_map779); if (failed) return m;
 
                             }
                             break;
@@ -1121,7 +1122,7 @@ public class JFDIParser extends Parser {
 
             }
 
-            match(input,9,FOLLOW_9_in_map784); if (failed) return m;
+            match(input,9,FOLLOW_9_in_map791); if (failed) return m;
             if ( backtracking==0 ) {
 
               			m = new AnonMapValue( (AnonMapValue.KeyValuePair[]) pairs.toArray( new AnonMapValue.KeyValuePair[ pairs.size() ] ) );
@@ -1203,7 +1204,7 @@ public class JFDIParser extends Parser {
     public static final BitSet FOLLOW_expr_in_map752 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_27_in_map754 = new BitSet(new long[]{0x00000000003800F0L});
     public static final BitSet FOLLOW_expr_in_map758 = new BitSet(new long[]{0x0000000000800200L});
-    public static final BitSet FOLLOW_23_in_map772 = new BitSet(new long[]{0x0000000000000200L});
-    public static final BitSet FOLLOW_9_in_map784 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_map779 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_map791 = new BitSet(new long[]{0x0000000000000002L});
 
 }
