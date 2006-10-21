@@ -1,4 +1,4 @@
-// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-21 14:27:45
+// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-21 14:40:39
 
 	package org.codehaus.jfdi.parser;
 
@@ -637,8 +637,8 @@ public class JFDIParserLexer extends Lexer {
             int line = getLine();
             int charPosition = getCharPositionInLine();
             int channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:216:3: ( ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:216:3: ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:215:3: ( ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:215:3: ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -650,7 +650,7 @@ public class JFDIParserLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:216:30: ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:215:30: ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
             loop1:
             do {
                 int alt1=2;
@@ -662,7 +662,7 @@ public class JFDIParserLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:216:31: ('a'..'z'|'A'..'Z'|'_'|'0'..'9')
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:215:31: ('a'..'z'|'A'..'Z'|'_'|'0'..'9')
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -708,10 +708,10 @@ public class JFDIParserLexer extends Lexer {
             int line = getLine();
             int charPosition = getCharPositionInLine();
             int channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:3: ( ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ ) )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:3: ( ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ ) )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
             int alt5=3;
             int LA5_0 = input.LA(1);
             if ( ((LA5_0>='1' && LA5_0<='9')) ) {
@@ -727,29 +727,29 @@ public class JFDIParserLexer extends Lexer {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("221:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 2, input);
+                        new NoViableAltException("220:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 2, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("221:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 0, input);
+                    new NoViableAltException("220:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 0, input);
 
                 throw nvae;
             }
             switch (alt5) {
                 case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:5: ( '1' .. '9' ) ( '0' .. '9' )*
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:5: ( '1' .. '9' ) ( '0' .. '9' )*
                     {
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:5: ( '1' .. '9' )
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:6: '1' .. '9'
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:5: ( '1' .. '9' )
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:6: '1' .. '9'
                     {
                     matchRange('1','9'); 
 
                     }
 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:15: ( '0' .. '9' )*
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:15: ( '0' .. '9' )*
                     loop2:
                     do {
                         int alt2=2;
@@ -761,7 +761,7 @@ public class JFDIParserLexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:16: '0' .. '9'
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:220:16: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -777,11 +777,11 @@ public class JFDIParserLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:222:5: '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:5: '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+
                     {
                     match("0x"); 
 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:222:10: ( ('0'..'9'|'A'..'F'|'a'..'f'))+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:10: ( ('0'..'9'|'A'..'F'|'a'..'f'))+
                     int cnt3=0;
                     loop3:
                     do {
@@ -794,7 +794,7 @@ public class JFDIParserLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:222:11: ('0'..'9'|'A'..'F'|'a'..'f')
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:221:11: ('0'..'9'|'A'..'F'|'a'..'f')
                     	    {
                     	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                     	        input.consume();
@@ -823,10 +823,10 @@ public class JFDIParserLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:223:5: '0' ( '0' .. '7' )+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:222:5: '0' ( '0' .. '7' )+
                     {
                     match('0'); 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:223:9: ( '0' .. '7' )+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:222:9: ( '0' .. '7' )+
                     int cnt4=0;
                     loop4:
                     do {
@@ -839,7 +839,7 @@ public class JFDIParserLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:223:10: '0' .. '7'
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:222:10: '0' .. '7'
                     	    {
                     	    matchRange('0','7'); 
 
@@ -886,11 +886,11 @@ public class JFDIParserLexer extends Lexer {
             int line = getLine();
             int charPosition = getCharPositionInLine();
             int channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:229:3: ( '\"' (~ '\"' )+ '\"' )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:229:3: '\"' (~ '\"' )+ '\"'
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:228:3: ( '\"' (~ '\"' )+ '\"' )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:228:3: '\"' (~ '\"' )+ '\"'
             {
             match('\"'); 
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:229:7: (~ '\"' )+
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:228:7: (~ '\"' )+
             int cnt6=0;
             loop6:
             do {
@@ -903,7 +903,7 @@ public class JFDIParserLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:229:7: ~ '\"'
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:228:7: ~ '\"'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -954,10 +954,10 @@ public class JFDIParserLexer extends Lexer {
             int line = getLine();
             int charPosition = getCharPositionInLine();
             int channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:234:3: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:234:3: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:233:3: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:233:3: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:234:3: ( '0' .. '9' )+
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:233:3: ( '0' .. '9' )+
             int cnt7=0;
             loop7:
             do {
@@ -970,7 +970,7 @@ public class JFDIParserLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:234:4: '0' .. '9'
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:233:4: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -987,7 +987,7 @@ public class JFDIParserLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:234:17: ( '0' .. '9' )+
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:233:17: ( '0' .. '9' )+
             int cnt8=0;
             loop8:
             do {
@@ -1000,7 +1000,7 @@ public class JFDIParserLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:234:18: '0' .. '9'
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:233:18: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 

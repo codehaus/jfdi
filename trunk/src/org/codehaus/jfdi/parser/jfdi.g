@@ -187,11 +187,10 @@ map returns [AnonMapValue m]
 	:
 		'{'
 			(	k=expr '=>' v=expr 
-				{
-					pairs.add( new AnonMapValue.KeyValuePair( k, v ) );
-				}
+				{ pairs.add( new AnonMapValue.KeyValuePair( k, v ) ); }
 				(	',' 
 					k=expr '=>' v=expr 
+					{ pairs.add( new AnonMapValue.KeyValuePair( k, v ) ); }
 				)*
 				','? 
 			)?
