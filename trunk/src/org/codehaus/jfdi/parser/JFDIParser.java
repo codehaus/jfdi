@@ -1,4 +1,4 @@
-// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-08 16:14:41
+// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-21 14:27:45
 
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.HashMap;
 public class JFDIParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "IDENT", "INTEGER", "STRING", "FLOAT", "'{'", "'}'", "'for'", "'in'", "'='", "'||'", "'&&'", "'+'", "'-'", "'*'", "'/'", "'true'", "'false'", "'('", "')'", "','", "'['", "']'", "'.'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "IDENT", "INTEGER", "STRING", "FLOAT", "'{'", "'}'", "'for'", "'in'", "'='", "'||'", "'&&'", "'+'", "'-'", "'*'", "'/'", "'true'", "'false'", "'('", "')'", "','", "'['", "']'", "'.'", "'=>'"
     };
     public static final int INTEGER=5;
     public static final int IDENT=4;
@@ -25,7 +25,7 @@ public class JFDIParser extends Parser {
 
         public JFDIParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[15+1];
+            ruleMemo = new HashMap[16+1];
          }
         
 
@@ -1017,6 +1017,131 @@ public class JFDIParser extends Parser {
     // $ANTLR end object_expr
 
 
+    // $ANTLR start map
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:182:1: map returns [AnonMapValue m] : '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}' ;
+    public AnonMapValue map() throws RecognitionException {   
+        AnonMapValue m = null;
+
+        Expr k = null;
+
+        Expr v = null;
+
+
+
+        		m = null;
+        		List pairs = new ArrayList();
+        	
+        try {
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:188:3: ( '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}' )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:188:3: '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}'
+            {
+            match(input,8,FOLLOW_8_in_map712); if (failed) return m;
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:189:4: (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
+            if ( ((LA15_0>=IDENT && LA15_0<=FLOAT)||(LA15_0>=19 && LA15_0<=21)) ) {
+                alt15=1;
+            }
+            switch (alt15) {
+                case 1 :
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:189:6: k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )?
+                    {
+                    pushFollow(FOLLOW_expr_in_map721);
+                    k=expr();
+                    _fsp--;
+                    if (failed) return m;
+                    match(input,27,FOLLOW_27_in_map723); if (failed) return m;
+                    pushFollow(FOLLOW_expr_in_map727);
+                    v=expr();
+                    _fsp--;
+                    if (failed) return m;
+                    if ( backtracking==0 ) {
+
+                      					pairs.add( new AnonMapValue.KeyValuePair( k, v ) );
+                      				
+                    }
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:193:5: ( ',' k= expr '=>' v= expr )*
+                    loop13:
+                    do {
+                        int alt13=2;
+                        int LA13_0 = input.LA(1);
+                        if ( (LA13_0==23) ) {
+                            int LA13_1 = input.LA(2);
+                            if ( ((LA13_1>=IDENT && LA13_1<=FLOAT)||(LA13_1>=19 && LA13_1<=21)) ) {
+                                alt13=1;
+                            }
+
+
+                        }
+
+
+                        switch (alt13) {
+                    	case 1 :
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:193:7: ',' k= expr '=>' v= expr
+                    	    {
+                    	    match(input,23,FOLLOW_23_in_map742); if (failed) return m;
+                    	    pushFollow(FOLLOW_expr_in_map752);
+                    	    k=expr();
+                    	    _fsp--;
+                    	    if (failed) return m;
+                    	    match(input,27,FOLLOW_27_in_map754); if (failed) return m;
+                    	    pushFollow(FOLLOW_expr_in_map758);
+                    	    v=expr();
+                    	    _fsp--;
+                    	    if (failed) return m;
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop13;
+                        }
+                    } while (true);
+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:196:5: ( ',' )?
+                    int alt14=2;
+                    int LA14_0 = input.LA(1);
+                    if ( (LA14_0==23) ) {
+                        alt14=1;
+                    }
+                    switch (alt14) {
+                        case 1 :
+                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:196:5: ','
+                            {
+                            match(input,23,FOLLOW_23_in_map772); if (failed) return m;
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            match(input,9,FOLLOW_9_in_map784); if (failed) return m;
+            if ( backtracking==0 ) {
+
+              			m = new AnonMapValue( (AnonMapValue.KeyValuePair[]) pairs.toArray( new AnonMapValue.KeyValuePair[ pairs.size() ] ) );
+              		
+            }
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return m;
+    }
+    // $ANTLR end map
+
+
  
 
     public static final BitSet FOLLOW_statements_in_compilation_unit42 = new BitSet(new long[]{0x0000000000000002L});
@@ -1070,5 +1195,15 @@ public class JFDIParser extends Parser {
     public static final BitSet FOLLOW_21_in_object_expr649 = new BitSet(new long[]{0x00000000007800F0L});
     public static final BitSet FOLLOW_arg_list_in_object_expr659 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_22_in_object_expr675 = new BitSet(new long[]{0x0000000005000002L});
+    public static final BitSet FOLLOW_8_in_map712 = new BitSet(new long[]{0x00000000003802F0L});
+    public static final BitSet FOLLOW_expr_in_map721 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_map723 = new BitSet(new long[]{0x00000000003800F0L});
+    public static final BitSet FOLLOW_expr_in_map727 = new BitSet(new long[]{0x0000000000800200L});
+    public static final BitSet FOLLOW_23_in_map742 = new BitSet(new long[]{0x00000000003800F0L});
+    public static final BitSet FOLLOW_expr_in_map752 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_27_in_map754 = new BitSet(new long[]{0x00000000003800F0L});
+    public static final BitSet FOLLOW_expr_in_map758 = new BitSet(new long[]{0x0000000000800200L});
+    public static final BitSet FOLLOW_23_in_map772 = new BitSet(new long[]{0x0000000000000200L});
+    public static final BitSet FOLLOW_9_in_map784 = new BitSet(new long[]{0x0000000000000002L});
 
 }
