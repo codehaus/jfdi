@@ -12,11 +12,18 @@ public class MethodCall implements Expr {
 	private Expr obj;
 	private String name;
 	private Expr[] params;
+	
+	private Method method;
 
 	public MethodCall(Expr obj, String name, Expr[] params) {
 		this.obj = obj;
 		this.name = name;
 		this.params = params;
+		Class[] paramTypes = new Class[ params.length ];
+		for ( int i = 0 ; i < paramTypes.length ; ++i ) {
+			paramTypes[ i ] = params[ i ].getType();
+		}
+		this.method = MethodResolver.getInstance().resolveMethod( obj.getType(), name, paramTypes );
 	}
 
 	public Object getValue() {
@@ -28,7 +35,6 @@ public class MethodCall implements Expr {
 		}
 		
 		System.err.println( "CALL " + name + " " + Arrays.asList( paramObjs ) );
-		Method method = MethodResolver.getInstance().resolveMethod( thisObj.getClass(), name, paramObjs );
 		MethodInvoker invoker = new MethodInvoker(  method, false, paramObjs );
 		try {
 			return invoker.invoke( thisObj );
@@ -44,6 +50,10 @@ public class MethodCall implements Expr {
 		}
 		
 		return null;
+	}
+
+	public Class getType() {
+		return method.getReturnType();
 	}
 
 }

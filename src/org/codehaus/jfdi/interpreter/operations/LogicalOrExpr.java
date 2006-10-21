@@ -25,5 +25,9 @@ public class LogicalOrExpr implements Expr {
 		
 		return ( rhsBool ? Boolean.TRUE : Boolean.FALSE );
 	}
+	
+	public Class getType() {
+		return Boolean.class;
+	}
 
 }

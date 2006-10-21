@@ -70,5 +70,21 @@ public class AdditiveExpr implements Expr {
 		
 		throw new ArithmeticException( lhsObj.toString() + op.toString() + rhsObj.toString() );
 	}
+	
+	public Class getType() {
+		if ( op == PLUS && ( lhs.getType() == String.class || rhs.getType() == String.class ) ) {
+			return String.class;
+		} 
+		
+		if ( lhs.getType() == Integer.class || rhs.getType() == Integer.class ) {
+			return Integer.class;
+		}
+		
+		if ( lhs.getType() == Double.class || rhs.getType() == Double.class ) {
+			return Double.class;
+		}
+		
+		throw new ArithmeticException( "invalid arithmetic types" );
+	}
 
 }
