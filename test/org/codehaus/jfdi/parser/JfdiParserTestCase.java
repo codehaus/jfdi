@@ -18,10 +18,12 @@ import org.codehaus.jfdi.interpreter.DefaultValueHandlerFactory;
 public abstract class JfdiParserTestCase extends TestCase {
 	
 	private DefaultValueHandlerFactory factory;
+	private ClassTypeResolver typeResolver;
 	
 	protected void setUp() throws Exception  {
 		super.setUp();
 		this.factory = new DefaultValueHandlerFactory( new ClassTypeResolver() );
+		this.typeResolver = new ClassTypeResolver();
 	}
 	
 	protected void tearDown() throws Exception {
@@ -36,6 +38,7 @@ public abstract class JfdiParserTestCase extends TestCase {
 	protected JFDIParser createParser(String text) throws IOException {
 		JFDIParser parser = new JFDIParser( createTokenStream( text ) );
 		parser.setValueHandlerFactory( factory );
+		parser.setTypeResolver( typeResolver );
 		return parser;
 	}
 	
