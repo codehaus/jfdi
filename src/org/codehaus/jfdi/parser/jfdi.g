@@ -200,13 +200,27 @@ map returns [AnonMapValue m]
 		}
 	;
 
-/*	
-array 
+
+list returns [AnonListValue l]
+	@init {
+		l = null;
+		List values = new ArrayList();
+	}
 	:
-		'[' ( expr ( ',' expr )* ','? )? ']'
+		'['	(	v=expr
+				{ values.add( v ); }
+				(	',' v=expr
+					{ values.add( v ); }
+				)* 
+				','? 
+			)? 
+		']'
+		{
+			l = new AnonListValue( values );
+		}
 	;
 	
-*/
+
 	
 	
 IDENT

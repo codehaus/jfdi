@@ -1,4 +1,4 @@
-// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-21 14:40:39
+// $ANTLR 3.0b4 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g 2006-10-21 20:34:39
 
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
@@ -25,7 +25,7 @@ public class JFDIParser extends Parser {
 
         public JFDIParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[16+1];
+            ruleMemo = new HashMap[17+1];
          }
         
 
@@ -1143,6 +1143,120 @@ public class JFDIParser extends Parser {
     // $ANTLR end map
 
 
+    // $ANTLR start list
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:204:1: list returns [AnonListValue l] : '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']' ;
+    public AnonListValue list() throws RecognitionException {   
+        AnonListValue l = null;
+
+        Expr v = null;
+
+
+
+        		l = null;
+        		List values = new ArrayList();
+        	
+        try {
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:210:3: ( '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']' )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:210:3: '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']'
+            {
+            match(input,24,FOLLOW_24_in_list819); if (failed) return l;
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:210:7: (v= expr ( ',' v= expr )* ( ',' )? )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
+            if ( ((LA18_0>=IDENT && LA18_0<=FLOAT)||(LA18_0>=19 && LA18_0<=21)) ) {
+                alt18=1;
+            }
+            switch (alt18) {
+                case 1 :
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:210:9: v= expr ( ',' v= expr )* ( ',' )?
+                    {
+                    pushFollow(FOLLOW_expr_in_list825);
+                    v=expr();
+                    _fsp--;
+                    if (failed) return l;
+                    if ( backtracking==0 ) {
+                       values.add( v ); 
+                    }
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:212:5: ( ',' v= expr )*
+                    loop16:
+                    do {
+                        int alt16=2;
+                        int LA16_0 = input.LA(1);
+                        if ( (LA16_0==23) ) {
+                            int LA16_1 = input.LA(2);
+                            if ( ((LA16_1>=IDENT && LA16_1<=FLOAT)||(LA16_1>=19 && LA16_1<=21)) ) {
+                                alt16=1;
+                            }
+
+
+                        }
+
+
+                        switch (alt16) {
+                    	case 1 :
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:212:7: ',' v= expr
+                    	    {
+                    	    match(input,23,FOLLOW_23_in_list839); if (failed) return l;
+                    	    pushFollow(FOLLOW_expr_in_list843);
+                    	    v=expr();
+                    	    _fsp--;
+                    	    if (failed) return l;
+                    	    if ( backtracking==0 ) {
+                    	       values.add( v ); 
+                    	    }
+
+                    	    }
+                    	    break;
+
+                    	default :
+                    	    break loop16;
+                        }
+                    } while (true);
+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:215:5: ( ',' )?
+                    int alt17=2;
+                    int LA17_0 = input.LA(1);
+                    if ( (LA17_0==23) ) {
+                        alt17=1;
+                    }
+                    switch (alt17) {
+                        case 1 :
+                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/jfdi.g:215:5: ','
+                            {
+                            match(input,23,FOLLOW_23_in_list864); if (failed) return l;
+
+                            }
+                            break;
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            match(input,25,FOLLOW_25_in_list877); if (failed) return l;
+            if ( backtracking==0 ) {
+
+              			l = new AnonListValue( values );
+              		
+            }
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return l;
+    }
+    // $ANTLR end list
+
+
  
 
     public static final BitSet FOLLOW_statements_in_compilation_unit42 = new BitSet(new long[]{0x0000000000000002L});
@@ -1206,5 +1320,11 @@ public class JFDIParser extends Parser {
     public static final BitSet FOLLOW_expr_in_map758 = new BitSet(new long[]{0x0000000000800200L});
     public static final BitSet FOLLOW_23_in_map779 = new BitSet(new long[]{0x0000000000000200L});
     public static final BitSet FOLLOW_9_in_map791 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_24_in_list819 = new BitSet(new long[]{0x00000000023800F0L});
+    public static final BitSet FOLLOW_expr_in_list825 = new BitSet(new long[]{0x0000000002800000L});
+    public static final BitSet FOLLOW_23_in_list839 = new BitSet(new long[]{0x00000000003800F0L});
+    public static final BitSet FOLLOW_expr_in_list843 = new BitSet(new long[]{0x0000000002800000L});
+    public static final BitSet FOLLOW_23_in_list864 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_list877 = new BitSet(new long[]{0x0000000000000002L});
 
 }
