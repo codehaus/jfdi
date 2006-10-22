@@ -11,6 +11,7 @@ grammar JFDIParser;
 @parser::members {
 
 	private ValueHandlerFactory factory;
+	private TypeResolver typeResolver;
 	
 	public void setValueHandlerFactory(ValueHandlerFactory factory) {
 		this.factory = factory;
@@ -18,6 +19,14 @@ grammar JFDIParser;
 	
 	public ValueHandlerFactory getValueHandlerFactory() {
 		return this.factory;
+	}
+	
+	public void setTypeResolver(TypeResolver typeResolver) {
+		this.typeResolver = typeResolver;
+	}
+	
+	public TypeResolver getTypeResolver() {
+		return typeResolver;
 	}
 	
 }
@@ -65,7 +74,12 @@ expr returns [Expr e]
 		e = null;
 	}
 	:
-		ex=logical_or_expr { e = ex; }
+		(t=cast)? ex=logical_or_expr { e = ex; }
+		{
+			if ( t != null ) {
+				e = new CastExpr( t, e );
+			}
+		}
 	;
 	
 logical_or_expr returns [Expr e]
@@ -177,7 +191,21 @@ object_expr returns [Expr e]
 		)*
 	;
 	
-
+cast returns [Class type] throws ClassNotFoundException
+	@init {
+		type = null;
+	}
+	:
+		'(' i=IDENT ')'
+		{
+			try {
+				type = typeResolver.resolveType( i.getText() );
+				System.err.println( "CASTING TO " + type);
+			} catch (ClassNotFoundException e) {
+				System.err.println( e.getMessage() );
+			}
+		}
+	;
 
 map returns [AnonMapValue m]
 	@init {
