@@ -19,12 +19,15 @@ package org.codehaus.jfdi;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.math.BigDecimal;
 
 public class Cheese {
     private String type;
-
+    private Mouse mouse = new Mouse();
     private int    price;
-
+    private String param;
+    private BigDecimal big = new BigDecimal("42.42");
+    
     public Cheese(final String type,
                   final int price) {
         this.type = type;
@@ -35,10 +38,27 @@ public class Cheese {
         return this.type;
     }
 
+    public BigDecimal getBigDecimal() {
+        return big;
+    }
+    
     public int getPrice() {
         return this.price;
     }
 
+    public Mouse getMouse() {
+        return mouse;
+    }
+    
+    public Mouse someMethod (String param) {
+        this.param = param;
+        return mouse;        
+    }
+    
+    public Mouse anotherMethod(String p1, long p2) {
+        return mouse;
+    }
+    
     /**
      * @param price the price to set
      */
@@ -88,5 +108,10 @@ public class Cheese {
             }
         }
         return -1;
+    }
+
+    public Object getParam() {
+        
+        return param;
     }
 }
