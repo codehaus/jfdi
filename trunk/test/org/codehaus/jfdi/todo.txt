@@ -1,8 +1,13 @@
+CRITICAL:
 * Need to allow single quote chars.
 * Additive/mult of BigDecimal/pluggable overrides (mix literal with var)
+* field access as a.b.c (property getters).
 * Cool assignment a(b = "c")
 * Cool setters: a.b = "c"
+* Optional brackets for methods
+
+
+NICE:
 * !! Runtime type detection for a.b['c']
 * optional ";" allow EOL when needed.
 * Date handling
-* Optional brackets for methods
