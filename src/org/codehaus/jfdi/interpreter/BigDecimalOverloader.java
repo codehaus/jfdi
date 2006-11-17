@@ -1,8 +1,7 @@
-package org.codehaus.jfdi.parser;
+package org.codehaus.jfdi.interpreter;
 
 import java.math.BigDecimal;
 
-import org.codehaus.jfdi.interpreter.OperatorOverloader;
 
 public class BigDecimalOverloader
     implements
