@@ -1,6 +1,7 @@
 package org.codehaus.jfdi.parser;
 
 import java.math.BigDecimal;
+import java.util.Map;
 
 import org.codehaus.jfdi.Cheese;
 import org.codehaus.jfdi.interpreter.operations.Expr;
@@ -74,7 +75,37 @@ public class MethodTest extends JfdiParserTestCase {
         Expr expr = (Expr) parser.atom();
         
         assertEquals(new Integer(84), expr.getValue() );
-    }    
+    }  
+    
+    public void testInlineArray() throws Exception {
+        Cheese cheese = new Cheese("stilton", 42);
+        
+        JFDIParser parser = createParser( "c.someArray( ['a','b'] )" );
+        addVariable( "c", cheese );
+        Expr expr = (Expr) parser.atom();        
+        
+        expr.getValue();
+        
+        assertEquals("a", cheese.getSomeArray()[0]);
+        assertEquals("b", cheese.getSomeArray()[1]);
+    }
+
+    public void testInlineMap() throws Exception {
+        Cheese cheese = new Cheese("stilton", 42);
+        
+        JFDIParser parser = createParser( "c.someMap( {'a' => 42,'b' => 42} )" );
+        addVariable( "c", cheese );
+        Expr expr = (Expr) parser.atom();        
+        
+        expr.getValue();
+        
+        Map m = cheese.getSomeMap();
+        
+        assertEquals(new Integer(42), m.get( "a" ));
+        assertEquals(new Integer(43), m.get( "b" ));
+        
+    }
+    
     
     /**
      * This should work as property notation should work

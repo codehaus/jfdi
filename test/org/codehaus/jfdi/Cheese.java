@@ -20,6 +20,7 @@ import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.math.BigDecimal;
+import java.util.Map;
 
 public class Cheese {
     private String type;
@@ -27,6 +28,8 @@ public class Cheese {
     private int    price;
     private String param;
     private BigDecimal big = new BigDecimal("42.42");
+    private String[] array;
+    private Map map;
     
     public Cheese(final String type,
                   final int price) {
@@ -40,6 +43,22 @@ public class Cheese {
 
     public BigDecimal getBigDecimal() {
         return big;
+    }
+    
+    public String[] getSomeArray() {
+        return this.array;
+    }
+    
+    public void someArray(String[] x) {
+        this.array = x;
+    }
+    
+    public void someMap(Map map) {
+        this.map = map;
+    }
+    
+    public Map getSomeMap() {
+        return this.map;
     }
     
     public int getPrice() {
