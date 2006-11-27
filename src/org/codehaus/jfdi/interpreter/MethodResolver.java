@@ -41,10 +41,14 @@ public class MethodResolver {
 
 		// check for null params, so we know if all the types are defined
 		for (int i = 0, length = params.length; i < length; i++) {
+			System.err.println( "param: " + params[i] );
 			if (params[i] == null) {
 				allDefined = false;
 			}
 		}
+		
+		System.err.println( "clazz: " + clazz );
+		System.err.println( "name: " + name );
 
 		if (allDefined) {
 			method = getMethod(clazz, name, params);
@@ -111,7 +115,7 @@ public class MethodResolver {
 		}
 		return (Method[]) list.toArray(new Method[list.size()]);
 	}
-
+	
 	private boolean matchesTypes(Class[] methodClasses, Class[] argumentClasses) {
 		for (int i = 0, length = methodClasses.length; i < length; i++) {
 			Class methodClass = methodClasses[i];

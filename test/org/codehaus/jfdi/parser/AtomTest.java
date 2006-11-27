@@ -1,5 +1,8 @@
 package org.codehaus.jfdi.parser;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+
 import org.codehaus.jfdi.interpreter.ValueHandler;
 
 public class AtomTest extends JfdiParserTestCase {

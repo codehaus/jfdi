@@ -8,7 +8,7 @@ import org.codehaus.jfdi.Cheese;
 import junit.framework.TestCase;
 
 public class DefaultExternalVariableTest extends TestCase {
-    public void DefaultExternalVariable() throws Exception {
+    public void testDefaultExternalVariable() throws Exception {
         Cheese stilton = new Cheese( "stilton",
                                      20 );
 

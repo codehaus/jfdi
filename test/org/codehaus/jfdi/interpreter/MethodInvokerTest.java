@@ -36,10 +36,17 @@ public class MethodInvokerTest extends TestCase {
                                                                     "helloWorld1",
                                                                     params );
         assertNotNull( method );
+        
+		Object[] paramObjs = new Object[ params.length ];
+		
+		for ( int i = 0 ; i < params.length ; ++i ) {
+			paramObjs[i] = params[i].getValue();
+		}
 
         MethodInvoker invoker = new MethodInvoker( method,
                                                    true,
-                                                   params );
+                                                   paramObjs );
+        
         TestVariable instance = new TestVariable();
         instance.setObject( "string" );
         
@@ -73,10 +80,16 @@ public class MethodInvokerTest extends TestCase {
                                                                     "helloWorld2",
                                                                     params );
         assertNotNull( method );
+        
+        Object[] paramObjs = new Object[ params.length ];
+		
+		for ( int i = 0 ; i < params.length ; ++i ) {
+			paramObjs[i] = params[i].getValue();
+		}
 
         MethodInvoker invoker = new MethodInvoker( method,
                                                    true,
-                                                   params );
+                                                   paramObjs );
 
         assertEquals( "v15l1l2l3",
                       invoker.invoke( null ) );

@@ -1,4 +1,4 @@
-grammar JFDIParser; 
+grammar JFDI;
 
 @parser::header {
 	package org.codehaus.jfdi.parser;
@@ -44,7 +44,7 @@ compilation_unit
 
 statements
 	:
-		statement*
+		(statement ';')*
 	;
 	
 statement
@@ -74,12 +74,12 @@ expr returns [Expr e]
 		e = null;
 	}
 	:
-		(t=cast)? ex=logical_or_expr { e = ex; }
-		{
+		/*(t=cast)?*/  ex=logical_or_expr { e = ex; }
+		/*{
 			if ( t != null ) {
 				e = new CastExpr( t, e );
 			}
-		}
+		}*/
 	;
 	
 logical_or_expr returns [Expr e]
@@ -150,6 +150,8 @@ atom returns [Expr e]
 		|	'true'    { e = factory.createLiteral( java.lang.Boolean.class, "true" ); }
 		|	'false'   { e = factory.createLiteral( java.lang.Boolean.class, "false" ); }
 		|	'(' ex=expr ')' { e = ex; }
+		|	l=list { e = l; }
+		|	m=map { e = m; }
 		|	ex=object_expr  { e = ex; }
 		)
 		{System.err.println( "atom returns " + e ); }
@@ -169,24 +171,33 @@ arg_list returns [List args]
 object_expr returns [Expr e]
 	@init {
 		e = null;
+		boolean isMethod = false;
 		Expr[] paramExprs = new Expr[0];
 	}
 	:
 		i=IDENT { e = factory.createExternalVariable( i.getText() ); }
-		(	'[' expr ']'
-		|	( '.' IDENT '(' )=> 
-			'.' m=IDENT '('
-				(	a=arg_list
-					{
-						paramExprs = new Expr[ a.size() ];
-						for ( int j = 0 ; j < paramExprs.length ; ++j ) {
-							paramExprs[j] = (Expr) a.get( j );
-						} 
-					}
-				)? ')' 
+		(	( '[' ~'[' )=> '[' expr ']'
+		|	'.' n=IDENT 
+			(	'('
+					(	a=arg_list
+						{
+							paramExprs = new Expr[ a.size() ];
+							for ( int j = 0 ; j < paramExprs.length ; ++j ) {
+								paramExprs[j] = (Expr) a.get( j );
+							} 
+						}
+					)? 
+				')'
+				{ isMethod = true; }
+			)? 	
 			{
-				e = new MethodCall( e, m.getText(), paramExprs );
+				String name = n.getText();
+				if ( ! isMethod ) {
+					name = "get" + name.substring(0,1).toUpperCase() + name.substring(1);
+				}
+				e = new MethodCall( e, name, paramExprs );
 				paramExprs = new Expr[0];
+				isMethod = false;
 			}
 		)*
 	;
@@ -266,7 +277,7 @@ INTEGER
 	
 STRING
 	:
-		'"' ~'"'+ '"'
+		( ('"' ~'"'+ '"') | ('\'' ~'\'' + '\'') )
 	;
 	
 FLOAT
