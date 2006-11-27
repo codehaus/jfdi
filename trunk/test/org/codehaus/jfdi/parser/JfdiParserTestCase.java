@@ -46,8 +46,8 @@ public abstract class JfdiParserTestCase extends TestCase {
 		return new CommonTokenStream( createLexer( text ) );
 	}
 	
-	private JFDIParserLexer createLexer(String text) throws IOException {
-		JFDIParserLexer lexer = new JFDIParserLexer( createStream( text ) );
+	private JFDILexer createLexer(String text) throws IOException {
+		JFDILexer lexer = new JFDILexer( createStream( text ) );
 		return lexer;
 	}
 	

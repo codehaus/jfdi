@@ -20,117 +20,138 @@ import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 public class Cheese {
-    private String type;
-    private Mouse mouse = new Mouse();
-    private int    price;
-    private String param;
-    private BigDecimal big = new BigDecimal("42.42");
-    private String[] array;
-    private Map map;
-    
-    public Cheese(final String type,
-                  final int price) {
-        this.type = type;
-        this.price = price;
-    }
+	private String type;
 
-    public String getType() {
-        return this.type;
-    }
+	private Mouse mouse = new Mouse();
 
-    public BigDecimal getBigDecimal() {
-        return big;
-    }
-    
-    public String[] getSomeArray() {
-        return this.array;
-    }
-    
-    public void someArray(String[] x) {
-        this.array = x;
-    }
-    
-    public void someMap(Map map) {
-        this.map = map;
-    }
-    
-    public Map getSomeMap() {
-        return this.map;
-    }
-    
-    public int getPrice() {
-        return this.price;
-    }
+	private int price;
 
-    public Mouse getMouse() {
-        return mouse;
-    }
-    
-    public Mouse someMethod (String param) {
-        this.param = param;
-        return mouse;        
-    }
-    
-    public Mouse anotherMethod(String p1, long p2) {
-        return mouse;
-    }
-    
-    /**
-     * @param price the price to set
-     */
-    public void setPrice(final int price) {
-        this.price = price;
-    }
+	private String param;
 
-    /**
-     * @param type the type to set
-     */
-    public void setType(final String type) {
-        this.type = type;
-    }
+	private BigDecimal big = new BigDecimal("42.42");
 
-    public String toString() {
-        return "Cheese type='" + this.type + "' price='" + this.price + "'";
-    }
+	private String[] array;
 
-    public int hashCode() {
-        //like org.apache.commons.lang.builder.HashCodeBuilder
-        int hashCode = 17;
-        hashCode = hashCode * 37 + this.price;
-        hashCode = hashCode * 37 + (this.type == null ? 0 : this.type.hashCode());
-        return hashCode;
-    }
+	private Map map;
 
-    public boolean equals(final Object object) {
-        if ( object == this ) {
-            return true;
-        }
+	private List list;
 
-        if ( object == null || !(object instanceof Cheese) ) {
-            return false;
-        }
+	public Cheese(final String type, final int price) {
+		this.type = type;
+		this.price = price;
+	}
 
-        final Cheese other = (Cheese) object;
+	public String getType() {
+		return this.type;
+	}
 
-        return (this.type.equals( other.getType() ) && this.price == other.getPrice());
-    }
+	public BigDecimal getBigDecimal() {
+		return big;
+	}
 
-    public static int getIndex(final Class clazz,
-                               final String name) throws IntrospectionException {
-        final PropertyDescriptor[] descriptors = Introspector.getBeanInfo( clazz ).getPropertyDescriptors();
-        for ( int i = 0; i < descriptors.length; i++ ) {
-            if ( descriptors[i].getName().equals( name ) ) {
-                return i;
-            }
-        }
-        return -1;
-    }
+	public String[] getSomeArray() {
+		return this.array;
+	}
 
-    public Object getParam() {
-        
-        return param;
-    }
+	public void someArray(String[] x) {
+		this.array = x;
+	}
+
+	public List getSomeList() {
+		return this.list;
+	}
+	
+	public void someList(List list) {
+		this.list = list;
+	}
+
+	public void someMap(Map map) {
+		this.map = map;
+	}
+
+	public Map getSomeMap() {
+		return this.map;
+	}
+
+	public int getPrice() {
+		return this.price;
+	}
+
+	public Mouse getMouse() {
+		return mouse;
+	}
+
+	public Mouse someMethod(String param) {
+		this.param = param;
+		return mouse;
+	}
+
+	public Mouse anotherMethod(String p1, long p2) {
+		return mouse;
+	}
+
+	/**
+	 * @param price
+	 *            the price to set
+	 */
+	public void setPrice(final int price) {
+		this.price = price;
+	}
+
+	/**
+	 * @param type
+	 *            the type to set
+	 */
+	public void setType(final String type) {
+		this.type = type;
+	}
+
+	public String toString() {
+		return "Cheese type='" + this.type + "' price='" + this.price + "'";
+	}
+
+	public int hashCode() {
+		// like org.apache.commons.lang.builder.HashCodeBuilder
+		int hashCode = 17;
+		hashCode = hashCode * 37 + this.price;
+		hashCode = hashCode * 37
+				+ (this.type == null ? 0 : this.type.hashCode());
+		return hashCode;
+	}
+
+	public boolean equals(final Object object) {
+		if (object == this) {
+			return true;
+		}
+
+		if (object == null || !(object instanceof Cheese)) {
+			return false;
+		}
+
+		final Cheese other = (Cheese) object;
+
+		return (this.type.equals(other.getType()) && this.price == other
+				.getPrice());
+	}
+
+	public static int getIndex(final Class clazz, final String name)
+			throws IntrospectionException {
+		final PropertyDescriptor[] descriptors = Introspector
+				.getBeanInfo(clazz).getPropertyDescriptors();
+		for (int i = 0; i < descriptors.length; i++) {
+			if (descriptors[i].getName().equals(name)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public Object getParam() {
+
+		return param;
+	}
 }
