@@ -82,5 +82,8 @@ public class ValueHandlerFactoryTest extends TestCase {
         } catch ( Exception e) {
             
         }
+        
+        assertTrue(this.factory.isValidVariable( "stilton" ));
+        assertFalse(this.factory.isValidVariable( "pornstar" ));
     }    
 }

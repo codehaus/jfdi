@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
+    
     public Map variables = new HashMap();
 
     public DefaultValueHandlerFactory(TypeResolver typeResolver) {
@@ -25,5 +26,11 @@ public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
                                                                     this.variables );
         return handler;
     }
+
+    public boolean isValidVariable(String identifier) {        
+        return variables.containsKey( identifier );
+    }
+    
+    
 
 }

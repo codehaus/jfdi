@@ -36,5 +36,10 @@ public interface ValueHandlerFactory {
      * External variables will be provided to the parser ahead of time.
      */
     public abstract ValueHandler createExternalVariable(String identifier);
+    
+    /**
+     * return true if the specified identifier is a variable.
+     */
+    public abstract boolean isValidVariable(String identifier);
 
 }
