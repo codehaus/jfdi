@@ -201,7 +201,8 @@ public class MethodTest extends JfdiParserTestCase {
 	 * 
 	 * @throws Exception
 	 */
-	public void doNotTestOptionalBrackets() throws Exception {
+	public void testOptionalBrackets() throws Exception {
+        fail("Bob is slacking, will get around to this eventually...");
 		Cheese cheese = new Cheese("stilton", 42);
 
 		JFDIParser parser = createParser("c.someMethod \"blah\", 42");
@@ -258,5 +259,65 @@ public class MethodTest extends JfdiParserTestCase {
 
 		assertEquals(new BigDecimal("84.42"), expr.getValue());
 	}
+    
+    /**
+     * We want double equals to use equals() like in groovy. No one cares about
+     * instance equals in the rules world, OO is dead man. 
+     */
+    public void testEquality() throws Exception {
+        Cheese cheese1 = new Cheese("stilton", 42);
+        Cheese cheese2 = new Cheese("stilton", 42);
+       
+        
+        assertTrue(cheese1.equals( cheese2 ));
+       
+        
+        JFDIParser parser = createParser("c1 == c2");
+        addVariable("c1", cheese1);
+        addVariable("c2", cheese2);
+        Expr expr = (Expr) parser.expr();       
+        
+        assertEquals(new Boolean(true), expr.getValue());
+        
+    }
+    
+    /**
+     * We want double equals to use equals() like in groovy. No one cares about
+     * instance equals in the rules world, OO is dead man. 
+     */
+    public void testInEquality() throws Exception {
+        Cheese cheese1 = new Cheese("stilton", 42);
+        Cheese cheese2 = new Cheese("stilton", 43);
+        
+        assertFalse(cheese1.equals( cheese2 ));
+        
+        JFDIParser parser = createParser("c1 == c2");
+        addVariable("c1", cheese1);
+        addVariable("c2", cheese2);
+        Expr expr = (Expr) parser.expr();       
+        
+        assertEquals(new Boolean(false), expr.getValue());
+    }    
+    
+    /**
+     * We want double equals to use equals() like in groovy. No one cares about
+     * instance equals in the rules world, OO is dead man. 
+     */
+    public void testNotEquals() throws Exception {
+        Cheese cheese1 = new Cheese("stilton", 42);
+        Cheese cheese2 = new Cheese("stilton", 43);
+       
+        
+        assertTrue(cheese1.equals( cheese2 ));
+       
+        
+        JFDIParser parser = createParser("c1 != c2");
+        addVariable("c1", cheese1);
+        addVariable("c2", cheese2);
+        Expr expr = (Expr) parser.expr();       
+        
+        assertEquals(new Boolean(true), expr.getValue());
+        
+    }    
 
 }
