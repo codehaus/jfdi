@@ -270,7 +270,7 @@ public class MethodTest extends JfdiParserTestCase {
        
         
         assertTrue(cheese1.equals( cheese2 ));
-       
+        assertFalse(cheese1 == cheese2);
         
         JFDIParser parser = createParser("c1 == c2");
         addVariable("c1", cheese1);
@@ -308,7 +308,7 @@ public class MethodTest extends JfdiParserTestCase {
         Cheese cheese2 = new Cheese("stilton", 43);
        
         
-        assertTrue(cheese1.equals( cheese2 ));
+        assertFalse(cheese1.equals( cheese2 ));
        
         
         JFDIParser parser = createParser("c1 != c2");
