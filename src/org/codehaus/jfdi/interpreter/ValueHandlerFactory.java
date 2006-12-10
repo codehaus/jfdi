@@ -21,13 +21,13 @@ public interface ValueHandlerFactory {
     /**
      * This is for creating a literal "value handler"
      */
-    public abstract ValueHandler createLiteral(Class cls,
+    public ValueHandler createLiteral(Class cls,
                                                String val);
 
     /** 
      * A local variable requires a type of some form (class).
      */
-    public abstract ValueHandler createLocalVariable(String identifier,
+    public ValueHandler createLocalVariable(String identifier,
                                                      String type,
                                                      boolean isFinal);
 
@@ -35,11 +35,14 @@ public interface ValueHandlerFactory {
      * To be implemented by the concrete factory.
      * External variables will be provided to the parser ahead of time.
      */
-    public abstract ValueHandler createExternalVariable(String identifier);
+    public ValueHandler createExternalVariable(String identifier);
     
     /**
-     * return true if the specified identifier is a variable.
+     * return true if the specified external identifier is a variable.
      */
-    public abstract boolean isValidVariable(String identifier);
+    public boolean isValidVariable(String identifier);
+    
+    public String[] getRequiredVariables();
+    
 
 }

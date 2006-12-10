@@ -19,7 +19,9 @@ public abstract class AbstractValueHandlerFactory
 
     private static final long    serialVersionUID = 320L;
 
-    protected final TypeResolver typeResolver;
+    protected final TypeResolver typeResolver;    
+    
+    protected  String[] requiredVariables;
 
     public AbstractValueHandlerFactory(TypeResolver typeResolver) {
         this.typeResolver = typeResolver;
@@ -65,6 +67,23 @@ public abstract class AbstractValueHandlerFactory
      * @see org.codehaus.jfdi.interpreter.ValueHandlerFactory#createExternalVariable(java.lang.String)
      */
     public abstract ValueHandler createExternalVariable(String identifier);
+    
+    protected void registerExternalVariable(String identifier) {
+        // Increase the size of the array and add the new variable
+        if ( this.requiredVariables == null ) {
+            this.requiredVariables = new  String[] { identifier  };
+        }  else {
+            String[] newArray = new String[ this.requiredVariables.length + 1];
+            System.arraycopy(this.requiredVariables, 
+                             0, newArray, 0, this.requiredVariables.length );
+            newArray[ newArray.length -1 ] = identifier;
+            this.requiredVariables = newArray;
+        }
+    }    
+        
+    public String[] getRequiredVariables() {
+        return this.requiredVariables;
+    }    
 
     public static class MapValue {
 
