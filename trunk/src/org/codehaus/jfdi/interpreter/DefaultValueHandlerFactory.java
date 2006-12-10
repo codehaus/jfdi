@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
     
-    public Map variables = new HashMap();
+    public Map variables = new HashMap();       
 
     public DefaultValueHandlerFactory(TypeResolver typeResolver) {
         super( typeResolver );
@@ -17,20 +17,16 @@ public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
                             instance );
     }
 
-    public void removeVariable(String identifier) {
-        this.variables.remove( identifier );
-    }
-
-    public ValueHandler createExternalVariable(String identifier) {
+    public ValueHandler createExternalVariable(String identifier) {        
+        registerExternalVariable( identifier );
+        
         VariableValueHandler handler = new DefaultExternalVariable( identifier,
                                                                     this.variables );
+                
         return handler;
     }
 
     public boolean isValidVariable(String identifier) {        
         return variables.containsKey( identifier );
-    }
-    
-    
-
+    }    
 }
