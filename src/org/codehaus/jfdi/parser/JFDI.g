@@ -198,7 +198,10 @@ object_expr returns [Expr e]
 	}
 	:
 		i=IDENT { e = factory.createExternalVariable( i.getText() ); }
-		(	( '[' ~'[' )=> '[' expr ']'
+		(	( '[' ~'[' )=> '[' index=expr ']'
+			{
+				e = new CollectionIndexExpr( e, index );
+			}
 		|	'.' n=IDENT 
 			(	'('
 					(	a=arg_list

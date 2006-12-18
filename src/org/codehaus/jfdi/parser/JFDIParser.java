@@ -1,4 +1,4 @@
-// $ANTLR 3.0b5 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g 2006-12-17 22:57:43
+// $ANTLR 3.0b5 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g 2006-12-17 23:35:30
 
 	package org.codehaus.jfdi.parser;
 	import org.codehaus.jfdi.interpreter.*;
@@ -1246,12 +1246,14 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start object_expr
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:193:1: object_expr returns [Expr e] : i= IDENT ( ( '[' ~ '[' )=> '[' expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )* ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:193:1: object_expr returns [Expr e] : i= IDENT ( ( '[' ~ '[' )=> '[' index= expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )* ;
     public Expr object_expr() throws RecognitionException {   
         Expr e = null;
 
         Token i=null;
         Token n=null;
+        Expr index = null;
+
         List a = null;
 
 
@@ -1261,15 +1263,15 @@ public class JFDIParser extends Parser {
         		Expr[] paramExprs = new Expr[0];
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:200:3: (i= IDENT ( ( '[' ~ '[' )=> '[' expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:200:3: i= IDENT ( ( '[' ~ '[' )=> '[' expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:200:3: (i= IDENT ( ( '[' ~ '[' )=> '[' index= expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:200:3: i= IDENT ( ( '[' ~ '[' )=> '[' index= expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )*
             {
             i=(Token)input.LT(1);
             match(input,IDENT,FOLLOW_IDENT_in_object_expr761); if (failed) return e;
             if ( backtracking==0 ) {
                e = factory.createExternalVariable( i.getText() ); 
             }
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:201:3: ( ( '[' ~ '[' )=> '[' expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:201:3: ( ( '[' ~ '[' )=> '[' index= expr ']' | '.' n= IDENT ( '(' (a= arg_list )? ')' )? )*
             loop16:
             do {
                 int alt16=3;
@@ -1284,24 +1286,29 @@ public class JFDIParser extends Parser {
 
                 switch (alt16) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:201:5: ( '[' ~ '[' )=> '[' expr ']'
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:201:5: ( '[' ~ '[' )=> '[' index= expr ']'
             	    {
             	    match(input,31,FOLLOW_31_in_object_expr779); if (failed) return e;
-            	    pushFollow(FOLLOW_expr_in_object_expr781);
-            	    expr();
+            	    pushFollow(FOLLOW_expr_in_object_expr783);
+            	    index=expr();
             	    _fsp--;
             	    if (failed) return e;
-            	    match(input,32,FOLLOW_32_in_object_expr783); if (failed) return e;
+            	    match(input,32,FOLLOW_32_in_object_expr785); if (failed) return e;
+            	    if ( backtracking==0 ) {
+
+            	      				e = new CollectionIndexExpr( e, index );
+            	      			
+            	    }
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:202:5: '.' n= IDENT ( '(' (a= arg_list )? ')' )?
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:205:5: '.' n= IDENT ( '(' (a= arg_list )? ')' )?
             	    {
-            	    match(input,33,FOLLOW_33_in_object_expr789); if (failed) return e;
+            	    match(input,33,FOLLOW_33_in_object_expr796); if (failed) return e;
             	    n=(Token)input.LT(1);
-            	    match(input,IDENT,FOLLOW_IDENT_in_object_expr793); if (failed) return e;
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:203:4: ( '(' (a= arg_list )? ')' )?
+            	    match(input,IDENT,FOLLOW_IDENT_in_object_expr800); if (failed) return e;
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:206:4: ( '(' (a= arg_list )? ')' )?
             	    int alt15=2;
             	    int LA15_0 = input.LA(1);
             	    if ( (LA15_0==28) ) {
@@ -1309,10 +1316,10 @@ public class JFDIParser extends Parser {
             	    }
             	    switch (alt15) {
             	        case 1 :
-            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:203:6: '(' (a= arg_list )? ')'
+            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:206:6: '(' (a= arg_list )? ')'
             	            {
-            	            match(input,28,FOLLOW_28_in_object_expr801); if (failed) return e;
-            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:204:6: (a= arg_list )?
+            	            match(input,28,FOLLOW_28_in_object_expr808); if (failed) return e;
+            	            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:207:6: (a= arg_list )?
             	            int alt14=2;
             	            int LA14_0 = input.LA(1);
             	            if ( ((LA14_0>=IDENT && LA14_0<=FLOAT)||LA14_0==9||(LA14_0>=26 && LA14_0<=28)||LA14_0==31) ) {
@@ -1320,9 +1327,9 @@ public class JFDIParser extends Parser {
             	            }
             	            switch (alt14) {
             	                case 1 :
-            	                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:204:8: a= arg_list
+            	                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:207:8: a= arg_list
             	                    {
-            	                    pushFollow(FOLLOW_arg_list_in_object_expr812);
+            	                    pushFollow(FOLLOW_arg_list_in_object_expr819);
             	                    a=arg_list();
             	                    _fsp--;
             	                    if (failed) return e;
@@ -1340,7 +1347,7 @@ public class JFDIParser extends Parser {
 
             	            }
 
-            	            match(input,29,FOLLOW_29_in_object_expr835); if (failed) return e;
+            	            match(input,29,FOLLOW_29_in_object_expr842); if (failed) return e;
             	            if ( backtracking==0 ) {
             	               isMethod = true; 
             	            }
@@ -1386,7 +1393,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start cast
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:227:1: cast returns [Class type] : '(' i= IDENT ')' ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:230:1: cast returns [Class type] : '(' i= IDENT ')' ;
     public Class cast() throws RecognitionException {   
         Class type = null;
 
@@ -1396,13 +1403,13 @@ public class JFDIParser extends Parser {
         		type = null;
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:232:3: ( '(' i= IDENT ')' )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:232:3: '(' i= IDENT ')'
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:235:3: ( '(' i= IDENT ')' )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:235:3: '(' i= IDENT ')'
             {
-            match(input,28,FOLLOW_28_in_cast887); if (failed) return type;
+            match(input,28,FOLLOW_28_in_cast894); if (failed) return type;
             i=(Token)input.LT(1);
-            match(input,IDENT,FOLLOW_IDENT_in_cast891); if (failed) return type;
-            match(input,29,FOLLOW_29_in_cast893); if (failed) return type;
+            match(input,IDENT,FOLLOW_IDENT_in_cast898); if (failed) return type;
+            match(input,29,FOLLOW_29_in_cast900); if (failed) return type;
             if ( backtracking==0 ) {
 
               			try {
@@ -1429,7 +1436,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start map
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:243:1: map returns [AnonMapValue m] : '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}' ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:246:1: map returns [AnonMapValue m] : '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}' ;
     public AnonMapValue map() throws RecognitionException {   
         AnonMapValue m = null;
 
@@ -1443,11 +1450,11 @@ public class JFDIParser extends Parser {
         		List pairs = new ArrayList();
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:249:3: ( '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}' )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:249:3: '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}'
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:252:3: ( '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}' )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:252:3: '{' (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )? '}'
             {
-            match(input,9,FOLLOW_9_in_map920); if (failed) return m;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:250:4: (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )?
+            match(input,9,FOLLOW_9_in_map927); if (failed) return m;
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:253:4: (k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )? )?
             int alt19=2;
             int LA19_0 = input.LA(1);
             if ( ((LA19_0>=IDENT && LA19_0<=FLOAT)||LA19_0==9||(LA19_0>=26 && LA19_0<=28)||LA19_0==31) ) {
@@ -1455,21 +1462,21 @@ public class JFDIParser extends Parser {
             }
             switch (alt19) {
                 case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:250:6: k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )?
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:253:6: k= expr '=>' v= expr ( ',' k= expr '=>' v= expr )* ( ',' )?
                     {
-                    pushFollow(FOLLOW_expr_in_map929);
+                    pushFollow(FOLLOW_expr_in_map936);
                     k=expr();
                     _fsp--;
                     if (failed) return m;
-                    match(input,34,FOLLOW_34_in_map931); if (failed) return m;
-                    pushFollow(FOLLOW_expr_in_map935);
+                    match(input,34,FOLLOW_34_in_map938); if (failed) return m;
+                    pushFollow(FOLLOW_expr_in_map942);
                     v=expr();
                     _fsp--;
                     if (failed) return m;
                     if ( backtracking==0 ) {
                        pairs.add( new AnonMapValue.KeyValuePair( k, v ) ); 
                     }
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:252:5: ( ',' k= expr '=>' v= expr )*
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:255:5: ( ',' k= expr '=>' v= expr )*
                     loop17:
                     do {
                         int alt17=2;
@@ -1486,15 +1493,15 @@ public class JFDIParser extends Parser {
 
                         switch (alt17) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:252:7: ',' k= expr '=>' v= expr
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:255:7: ',' k= expr '=>' v= expr
                     	    {
-                    	    match(input,30,FOLLOW_30_in_map950); if (failed) return m;
-                    	    pushFollow(FOLLOW_expr_in_map960);
+                    	    match(input,30,FOLLOW_30_in_map957); if (failed) return m;
+                    	    pushFollow(FOLLOW_expr_in_map967);
                     	    k=expr();
                     	    _fsp--;
                     	    if (failed) return m;
-                    	    match(input,34,FOLLOW_34_in_map962); if (failed) return m;
-                    	    pushFollow(FOLLOW_expr_in_map966);
+                    	    match(input,34,FOLLOW_34_in_map969); if (failed) return m;
+                    	    pushFollow(FOLLOW_expr_in_map973);
                     	    v=expr();
                     	    _fsp--;
                     	    if (failed) return m;
@@ -1510,7 +1517,7 @@ public class JFDIParser extends Parser {
                         }
                     } while (true);
 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:256:5: ( ',' )?
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:259:5: ( ',' )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
                     if ( (LA18_0==30) ) {
@@ -1518,9 +1525,9 @@ public class JFDIParser extends Parser {
                     }
                     switch (alt18) {
                         case 1 :
-                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:256:5: ','
+                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:259:5: ','
                             {
-                            match(input,30,FOLLOW_30_in_map987); if (failed) return m;
+                            match(input,30,FOLLOW_30_in_map994); if (failed) return m;
 
                             }
                             break;
@@ -1533,7 +1540,7 @@ public class JFDIParser extends Parser {
 
             }
 
-            match(input,10,FOLLOW_10_in_map999); if (failed) return m;
+            match(input,10,FOLLOW_10_in_map1006); if (failed) return m;
             if ( backtracking==0 ) {
 
               			m = new AnonMapValue( (AnonMapValue.KeyValuePair[]) pairs.toArray( new AnonMapValue.KeyValuePair[ pairs.size() ] ) );
@@ -1555,7 +1562,7 @@ public class JFDIParser extends Parser {
 
 
     // $ANTLR start list
-    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:265:1: list returns [AnonListValue l] : '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']' ;
+    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:268:1: list returns [AnonListValue l] : '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']' ;
     public AnonListValue list() throws RecognitionException {   
         AnonListValue l = null;
 
@@ -1567,11 +1574,11 @@ public class JFDIParser extends Parser {
         		List values = new ArrayList();
         	
         try {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:271:3: ( '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']' )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:271:3: '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']'
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:274:3: ( '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']' )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:274:3: '[' (v= expr ( ',' v= expr )* ( ',' )? )? ']'
             {
-            match(input,31,FOLLOW_31_in_list1027); if (failed) return l;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:271:7: (v= expr ( ',' v= expr )* ( ',' )? )?
+            match(input,31,FOLLOW_31_in_list1034); if (failed) return l;
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:274:7: (v= expr ( ',' v= expr )* ( ',' )? )?
             int alt22=2;
             int LA22_0 = input.LA(1);
             if ( ((LA22_0>=IDENT && LA22_0<=FLOAT)||LA22_0==9||(LA22_0>=26 && LA22_0<=28)||LA22_0==31) ) {
@@ -1579,16 +1586,16 @@ public class JFDIParser extends Parser {
             }
             switch (alt22) {
                 case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:271:9: v= expr ( ',' v= expr )* ( ',' )?
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:274:9: v= expr ( ',' v= expr )* ( ',' )?
                     {
-                    pushFollow(FOLLOW_expr_in_list1033);
+                    pushFollow(FOLLOW_expr_in_list1040);
                     v=expr();
                     _fsp--;
                     if (failed) return l;
                     if ( backtracking==0 ) {
                        values.add( v ); 
                     }
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:273:5: ( ',' v= expr )*
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:276:5: ( ',' v= expr )*
                     loop20:
                     do {
                         int alt20=2;
@@ -1605,10 +1612,10 @@ public class JFDIParser extends Parser {
 
                         switch (alt20) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:273:7: ',' v= expr
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:276:7: ',' v= expr
                     	    {
-                    	    match(input,30,FOLLOW_30_in_list1047); if (failed) return l;
-                    	    pushFollow(FOLLOW_expr_in_list1051);
+                    	    match(input,30,FOLLOW_30_in_list1054); if (failed) return l;
+                    	    pushFollow(FOLLOW_expr_in_list1058);
                     	    v=expr();
                     	    _fsp--;
                     	    if (failed) return l;
@@ -1624,7 +1631,7 @@ public class JFDIParser extends Parser {
                         }
                     } while (true);
 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:276:5: ( ',' )?
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:279:5: ( ',' )?
                     int alt21=2;
                     int LA21_0 = input.LA(1);
                     if ( (LA21_0==30) ) {
@@ -1632,9 +1639,9 @@ public class JFDIParser extends Parser {
                     }
                     switch (alt21) {
                         case 1 :
-                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:276:5: ','
+                            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:279:5: ','
                             {
-                            match(input,30,FOLLOW_30_in_list1072); if (failed) return l;
+                            match(input,30,FOLLOW_30_in_list1079); if (failed) return l;
 
                             }
                             break;
@@ -1647,7 +1654,7 @@ public class JFDIParser extends Parser {
 
             }
 
-            match(input,32,FOLLOW_32_in_list1085); if (failed) return l;
+            match(input,32,FOLLOW_32_in_list1092); if (failed) return l;
             if ( backtracking==0 ) {
 
               			l = new AnonListValue( values );
@@ -1753,32 +1760,32 @@ public class JFDIParser extends Parser {
     public static final BitSet FOLLOW_expr_in_arg_list724 = new BitSet(new long[]{0x0000000040000002L});
     public static final BitSet FOLLOW_IDENT_in_object_expr761 = new BitSet(new long[]{0x0000000280000002L});
     public static final BitSet FOLLOW_31_in_object_expr779 = new BitSet(new long[]{0x000000009C0002F0L});
-    public static final BitSet FOLLOW_expr_in_object_expr781 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_object_expr783 = new BitSet(new long[]{0x0000000280000002L});
-    public static final BitSet FOLLOW_33_in_object_expr789 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_IDENT_in_object_expr793 = new BitSet(new long[]{0x0000000290000002L});
-    public static final BitSet FOLLOW_28_in_object_expr801 = new BitSet(new long[]{0x00000000BC0002F0L});
-    public static final BitSet FOLLOW_arg_list_in_object_expr812 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_object_expr835 = new BitSet(new long[]{0x0000000280000002L});
-    public static final BitSet FOLLOW_28_in_cast887 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_IDENT_in_cast891 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_29_in_cast893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_9_in_map920 = new BitSet(new long[]{0x000000009C0006F0L});
-    public static final BitSet FOLLOW_expr_in_map929 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_map931 = new BitSet(new long[]{0x000000009C0002F0L});
-    public static final BitSet FOLLOW_expr_in_map935 = new BitSet(new long[]{0x0000000040000400L});
-    public static final BitSet FOLLOW_30_in_map950 = new BitSet(new long[]{0x000000009C0002F0L});
-    public static final BitSet FOLLOW_expr_in_map960 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_34_in_map962 = new BitSet(new long[]{0x000000009C0002F0L});
-    public static final BitSet FOLLOW_expr_in_map966 = new BitSet(new long[]{0x0000000040000400L});
-    public static final BitSet FOLLOW_30_in_map987 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_10_in_map999 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_list1027 = new BitSet(new long[]{0x000000019C0002F0L});
-    public static final BitSet FOLLOW_expr_in_list1033 = new BitSet(new long[]{0x0000000140000000L});
-    public static final BitSet FOLLOW_30_in_list1047 = new BitSet(new long[]{0x000000009C0002F0L});
-    public static final BitSet FOLLOW_expr_in_list1051 = new BitSet(new long[]{0x0000000140000000L});
-    public static final BitSet FOLLOW_30_in_list1072 = new BitSet(new long[]{0x0000000100000000L});
-    public static final BitSet FOLLOW_32_in_list1085 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expr_in_object_expr783 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_object_expr785 = new BitSet(new long[]{0x0000000280000002L});
+    public static final BitSet FOLLOW_33_in_object_expr796 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_IDENT_in_object_expr800 = new BitSet(new long[]{0x0000000290000002L});
+    public static final BitSet FOLLOW_28_in_object_expr808 = new BitSet(new long[]{0x00000000BC0002F0L});
+    public static final BitSet FOLLOW_arg_list_in_object_expr819 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_29_in_object_expr842 = new BitSet(new long[]{0x0000000280000002L});
+    public static final BitSet FOLLOW_28_in_cast894 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_IDENT_in_cast898 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_29_in_cast900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_9_in_map927 = new BitSet(new long[]{0x000000009C0006F0L});
+    public static final BitSet FOLLOW_expr_in_map936 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_map938 = new BitSet(new long[]{0x000000009C0002F0L});
+    public static final BitSet FOLLOW_expr_in_map942 = new BitSet(new long[]{0x0000000040000400L});
+    public static final BitSet FOLLOW_30_in_map957 = new BitSet(new long[]{0x000000009C0002F0L});
+    public static final BitSet FOLLOW_expr_in_map967 = new BitSet(new long[]{0x0000000400000000L});
+    public static final BitSet FOLLOW_34_in_map969 = new BitSet(new long[]{0x000000009C0002F0L});
+    public static final BitSet FOLLOW_expr_in_map973 = new BitSet(new long[]{0x0000000040000400L});
+    public static final BitSet FOLLOW_30_in_map994 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_10_in_map1006 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_31_in_list1034 = new BitSet(new long[]{0x000000019C0002F0L});
+    public static final BitSet FOLLOW_expr_in_list1040 = new BitSet(new long[]{0x0000000140000000L});
+    public static final BitSet FOLLOW_30_in_list1054 = new BitSet(new long[]{0x000000009C0002F0L});
+    public static final BitSet FOLLOW_expr_in_list1058 = new BitSet(new long[]{0x0000000140000000L});
+    public static final BitSet FOLLOW_30_in_list1079 = new BitSet(new long[]{0x0000000100000000L});
+    public static final BitSet FOLLOW_32_in_list1092 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_synpred1171 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_IDENT_in_synpred1173 = new BitSet(new long[]{0x0000000000000002L});
 
