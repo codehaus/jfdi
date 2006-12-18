@@ -128,15 +128,34 @@ multiplicative_expr returns [Expr e]
 		MultiplicativeExpr.Operator op = null;
 	}
 	:
-		lhs=atom { e = lhs; }
+		lhs=equality_expr { e = lhs; }
 		(
 			( '*' { op = MultiplicativeExpr.MULT; } 
 			| '/' { op = MultiplicativeExpr.DIV; }
 			) 
-			rhs=atom 
-			{ e = new MultiplicativeExpr( e, rhs, op ); }
+			rhs=equality_expr { e = new MultiplicativeExpr( e, rhs, op ); }
 		)*
 		{System.err.println( "mult_expr returns " + e ); }
+	;
+	
+equality_expr returns [Expr e]
+	@init {
+		e = null;
+		EqualityExpr.Operator op = null;
+	}
+	:
+		lhs=atom { e = lhs; }
+		(
+			( '==' { op = EqualityExpr.IS_EQUAL; }
+			| '!=' { op = EqualityExpr.IS_NOT_EQUAL; }
+			| '>=' { op = EqualityExpr.IS_GREATER_THAN_EQUAL; }
+			| '>'  { op = EqualityExpr.IS_GREATER_THAN; }
+			| '<=' { op = EqualityExpr.IS_LESS_THAN_EQUAL; }
+			| '<'  { op = EqualityExpr.IS_LESS_THAN; }
+			)
+			rhs=atom { e = new EqualityExpr( e, rhs, op ); }
+		)*
+		{System.err.println( "equality_expr returns " + e ); }	
 	;
 	
 atom returns [Expr e]
