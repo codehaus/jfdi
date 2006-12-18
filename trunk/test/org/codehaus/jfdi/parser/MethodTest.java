@@ -369,7 +369,7 @@ public class MethodTest extends JfdiParserTestCase {
         Map m = new HashMap();
         m.put( "boo", cheese1 );
         m.put( "ya", cheese2 );
-        JFDIParser parser = createParser("c[\"boo\"]");
+        JFDIParser parser = createParser("c['boo']");
         addVariable( "c", m );
 
         Expr expr = (Expr) parser.expr();       
