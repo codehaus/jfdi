@@ -1,6 +1,7 @@
 package org.codehaus.jfdi.parser;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -341,6 +342,25 @@ public class MethodTest extends JfdiParserTestCase {
         assertEquals(cheese2, expr.getValue());
         
     }
+    
+    public void testListAccess() throws Exception {
+        Cheese cheese1 = new Cheese("stilton", 42);
+        Cheese cheese2 = new Cheese("stilton", 43);
+              
+        List list = new  ArrayList();
+        list.add( cheese1 );
+        list.add( cheese2 );
+       
+        
+        
+        JFDIParser parser = createParser("c[1]");
+        addVariable("c", list);
+        
+        Expr expr = (Expr) parser.expr();       
+        
+        assertEquals(cheese2, expr.getValue());
+        
+    }    
     
     public void testMapAccess() throws Exception {
         Cheese cheese1 = new Cheese("stilton", 42);
