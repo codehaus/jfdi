@@ -278,6 +278,8 @@ public class MethodTest extends JfdiParserTestCase {
         addVariable("c2", cheese2);
         Expr expr = (Expr) parser.expr();       
         
+        System.err.println( "EXPR: " + expr );
+        
         assertEquals(new Boolean(true), expr.getValue());
         
     }
