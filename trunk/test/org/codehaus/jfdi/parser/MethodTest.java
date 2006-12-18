@@ -364,12 +364,12 @@ public class MethodTest extends JfdiParserTestCase {
     
     public void testMapAccess() throws Exception {
         Cheese cheese1 = new Cheese("stilton", 42);
-        Cheese cheese2 = new Cheese("stilton", 43);
+        Cheese cheese2 = new Cheese("cheddar", 43);
         
         Map m = new HashMap();
         m.put( "boo", cheese1 );
         m.put( "ya", cheese2 );
-        JFDIParser parser = createParser("c['boo']");
+        JFDIParser parser = createParser("c[\"boo\"]");
         addVariable( "c", m );
 
         Expr expr = (Expr) parser.expr();       

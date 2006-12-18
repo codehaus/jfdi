@@ -1,4 +1,4 @@
-// $ANTLR 3.0b5 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g 2006-12-17 20:19:18
+// $ANTLR 3.0b5 /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g 2006-12-17 22:57:44
 
 	package org.codehaus.jfdi.parser;
 
@@ -851,8 +851,8 @@ public class JFDILexer extends Lexer {
             int _line = getLine();
             int _charPosition = getCharPositionInLine();
             int _channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:286:3: ( ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))* )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:286:3: ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:289:3: ( ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))* )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:289:3: ('a'..'z'|'A'..'Z'|'_'|'$') ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -864,7 +864,7 @@ public class JFDILexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:286:30: ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:289:30: ( ('a'..'z'|'A'..'Z'|'_'|'0'..'9'))*
             loop1:
             do {
                 int alt1=2;
@@ -876,7 +876,7 @@ public class JFDILexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:286:31: ('a'..'z'|'A'..'Z'|'_'|'0'..'9')
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:289:31: ('a'..'z'|'A'..'Z'|'_'|'0'..'9')
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -922,10 +922,10 @@ public class JFDILexer extends Lexer {
             int _line = getLine();
             int _charPosition = getCharPositionInLine();
             int _channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:3: ( ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ ) )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:3: ( ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ ) )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )
             int alt5=3;
             int LA5_0 = input.LA(1);
             if ( ((LA5_0>='1' && LA5_0<='9')) ) {
@@ -941,29 +941,29 @@ public class JFDILexer extends Lexer {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("291:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 2, input);
+                        new NoViableAltException("294:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 2, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("291:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 0, input);
+                    new NoViableAltException("294:3: ( ( '1' .. '9' ) ( '0' .. '9' )* | '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+ | '0' ( '0' .. '7' )+ )", 5, 0, input);
 
                 throw nvae;
             }
             switch (alt5) {
                 case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:5: ( '1' .. '9' ) ( '0' .. '9' )*
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:5: ( '1' .. '9' ) ( '0' .. '9' )*
                     {
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:5: ( '1' .. '9' )
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:6: '1' .. '9'
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:5: ( '1' .. '9' )
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:6: '1' .. '9'
                     {
                     matchRange('1','9'); 
 
                     }
 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:15: ( '0' .. '9' )*
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:15: ( '0' .. '9' )*
                     loop2:
                     do {
                         int alt2=2;
@@ -975,7 +975,7 @@ public class JFDILexer extends Lexer {
 
                         switch (alt2) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:291:16: '0' .. '9'
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:294:16: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -991,11 +991,11 @@ public class JFDILexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:292:5: '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:295:5: '0x' ( ('0'..'9'|'A'..'F'|'a'..'f'))+
                     {
                     match("0x"); 
 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:292:10: ( ('0'..'9'|'A'..'F'|'a'..'f'))+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:295:10: ( ('0'..'9'|'A'..'F'|'a'..'f'))+
                     int cnt3=0;
                     loop3:
                     do {
@@ -1008,7 +1008,7 @@ public class JFDILexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:292:11: ('0'..'9'|'A'..'F'|'a'..'f')
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:295:11: ('0'..'9'|'A'..'F'|'a'..'f')
                     	    {
                     	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                     	        input.consume();
@@ -1037,10 +1037,10 @@ public class JFDILexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:293:5: '0' ( '0' .. '7' )+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:296:5: '0' ( '0' .. '7' )+
                     {
                     match('0'); 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:293:9: ( '0' .. '7' )+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:296:9: ( '0' .. '7' )+
                     int cnt4=0;
                     loop4:
                     do {
@@ -1053,7 +1053,7 @@ public class JFDILexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:293:10: '0' .. '7'
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:296:10: '0' .. '7'
                     	    {
                     	    matchRange('0','7'); 
 
@@ -1100,10 +1100,10 @@ public class JFDILexer extends Lexer {
             int _line = getLine();
             int _charPosition = getCharPositionInLine();
             int _channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:3: ( ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) ) )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:3: ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:3: ( ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) ) )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:3: ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) )
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:3: ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:3: ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) )
             int alt8=2;
             int LA8_0 = input.LA(1);
             if ( (LA8_0=='\"') ) {
@@ -1114,19 +1114,19 @@ public class JFDILexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("299:3: ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) )", 8, 0, input);
+                    new NoViableAltException("302:3: ( ( '\"' (~ '\"' )+ '\"' ) | ( '\\'' (~ '\\'' )+ '\\'' ) )", 8, 0, input);
 
                 throw nvae;
             }
             switch (alt8) {
                 case 1 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:5: ( '\"' (~ '\"' )+ '\"' )
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:5: ( '\"' (~ '\"' )+ '\"' )
                     {
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:5: ( '\"' (~ '\"' )+ '\"' )
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:6: '\"' (~ '\"' )+ '\"'
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:5: ( '\"' (~ '\"' )+ '\"' )
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:6: '\"' (~ '\"' )+ '\"'
                     {
                     match('\"'); 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:10: (~ '\"' )+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:10: (~ '\"' )+
                     int cnt6=0;
                     loop6:
                     do {
@@ -1139,7 +1139,7 @@ public class JFDILexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:10: ~ '\"'
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:10: ~ '\"'
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1172,13 +1172,13 @@ public class JFDILexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:23: ( '\\'' (~ '\\'' )+ '\\'' )
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:23: ( '\\'' (~ '\\'' )+ '\\'' )
                     {
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:23: ( '\\'' (~ '\\'' )+ '\\'' )
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:24: '\\'' (~ '\\'' )+ '\\''
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:23: ( '\\'' (~ '\\'' )+ '\\'' )
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:24: '\\'' (~ '\\'' )+ '\\''
                     {
                     match('\''); 
-                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:29: (~ '\\'' )+
+                    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:29: (~ '\\'' )+
                     int cnt7=0;
                     loop7:
                     do {
@@ -1191,7 +1191,7 @@ public class JFDILexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:299:29: ~ '\\''
+                    	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:302:29: ~ '\\''
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1251,10 +1251,10 @@ public class JFDILexer extends Lexer {
             int _line = getLine();
             int _charPosition = getCharPositionInLine();
             int _channel = Token.DEFAULT_CHANNEL;
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:304:3: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:304:3: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:307:3: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )+ )
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:307:3: ( '0' .. '9' )+ '.' ( '0' .. '9' )+
             {
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:304:3: ( '0' .. '9' )+
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:307:3: ( '0' .. '9' )+
             int cnt9=0;
             loop9:
             do {
@@ -1267,7 +1267,7 @@ public class JFDILexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:304:4: '0' .. '9'
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:307:4: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1284,7 +1284,7 @@ public class JFDILexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:304:17: ( '0' .. '9' )+
+            // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:307:17: ( '0' .. '9' )+
             int cnt10=0;
             loop10:
             do {
@@ -1297,7 +1297,7 @@ public class JFDILexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:304:18: '0' .. '9'
+            	    // /Users/bob/checkouts/jfdi/src/org/codehaus/jfdi/parser/JFDI.g:307:18: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
