@@ -28,7 +28,10 @@ grammar JFDI;
 	public TypeResolver getTypeResolver() {
 		return typeResolver;
 	}
-	
+
+	public boolean isVariableName(String name) {
+		return this.factory.isValidVariable(name);
+	}	
 }
 
 @lexer::header {
@@ -74,12 +77,12 @@ expr returns [Expr e]
 		e = null;
 	}
 	:
-		/*(t=cast)?*/  ex=logical_or_expr { e = ex; }
-		/*{
+		(('(' IDENT)=>{!isVariableName( input.LT(2).getText() )}? t=cast|)  ex=logical_or_expr { e = ex; }
+		{
 			if ( t != null ) {
 				e = new CastExpr( t, e );
 			}
-		}*/
+		}
 	;
 	
 logical_or_expr returns [Expr e]
