@@ -9,6 +9,7 @@ public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
     
     public DefaultValueHandlerFactory(TypeResolver typeResolver) {
         super( typeResolver );
+        this.variables = new HashMap();
    }
     
     public DefaultValueHandlerFactory(TypeResolver typeResolver, HashMap variables) {
@@ -26,11 +27,15 @@ public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
                             instance );
     }
 
+    public Object get(String identifier) {
+    	return this.variables.get( identifier );
+    }
+    
     public ValueHandler createExternalVariable(String identifier) {        
         registerExternalVariable( identifier );
         
         VariableValueHandler handler = new DefaultExternalVariable( identifier,
-                                                                    this.variables );
+                                                                    this );
                 
         return handler;
     }
