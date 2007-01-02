@@ -5,10 +5,19 @@ import java.util.Map;
 
 public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
     
-    public Map variables = new HashMap();       
-
+    public Map variables;       
+    
     public DefaultValueHandlerFactory(TypeResolver typeResolver) {
         super( typeResolver );
+   }
+    
+    public DefaultValueHandlerFactory(TypeResolver typeResolver, HashMap variables) {
+        super( typeResolver );
+        this.variables = variables;
+   }    
+    
+    public void setVariables(Map variables) {
+        this.variables = variables;
     }
 
     public void addVariable(String identifier,
