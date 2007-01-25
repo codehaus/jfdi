@@ -15,8 +15,8 @@ public class AnonListValue implements ValueHandler {
 	private static final long serialVersionUID = 320L;
 
 	private final Expr[] values;
-
-	private Object cachedValue = null;
+    
+//     private int counter;
 	
 	public AnonListValue(final List values) {
 		this( (Expr[]) values.toArray( new Expr[ values.size() ] ) );
@@ -27,27 +27,20 @@ public class AnonListValue implements ValueHandler {
 	}
 
 	public Object getValue() {
-		if (this.cachedValue == null) {
 			final List resolvedList = new ArrayList();
-
+//            System.out.println( counter++ );
+            
 			for (int i = 0; i < values.length; ++i) {
 				resolvedList.add(values[i].getValue());
 			}
-
-			this.cachedValue = resolvedList;
-		}
-		return this.cachedValue;
+            return resolvedList;
 	}
 
 	public Class getExtractToClass() {
 		return List.class;
 	}
 
-	public void reset() {
-		this.cachedValue = null;
-	}
-
-	public String toString() {
+    public String toString() {
 		return "[ListValue list=" + Arrays.asList(values) + "]";
 	}
 

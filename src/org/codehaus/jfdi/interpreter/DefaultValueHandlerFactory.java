@@ -12,7 +12,7 @@ public class DefaultValueHandlerFactory extends AbstractValueHandlerFactory {
         this.variables = new HashMap();
    }
     
-    public DefaultValueHandlerFactory(TypeResolver typeResolver, HashMap variables) {
+    public DefaultValueHandlerFactory(TypeResolver typeResolver, Map variables) {
         super( typeResolver );
         this.variables = variables;
    }    

@@ -18,8 +18,9 @@ public class MethodInvokerTest extends TestCase {
         context.put( "foo",
                      TestVariable.class );
 
+        DefaultValueHandlerFactory factory = new DefaultValueHandlerFactory(null, context);
         DefaultExternalVariable variableHandler = new DefaultExternalVariable( "a1",
-                                                                               context );
+                                                                               factory );
 
         LiteralValue literal = new LiteralValue( new Integer( 5 ) );
 
@@ -62,8 +63,9 @@ public class MethodInvokerTest extends TestCase {
         context.put( "foo",
                      TestVariable.class );
 
+        DefaultValueHandlerFactory factory = new DefaultValueHandlerFactory(null, context);
         DefaultExternalVariable variableHandler = new DefaultExternalVariable( "a1",
-                                                                               context );
+                                                                               factory );
 
         LiteralValue literal = new LiteralValue( new Integer( 5 ) );
 

@@ -16,8 +16,10 @@ public class DefaultExternalVariableTest extends TestCase {
         context.put( "stilton",
                      stilton );
 
+        DefaultValueHandlerFactory factory = new DefaultValueHandlerFactory(null, context);
+        
         DefaultExternalVariable valueHandler = new DefaultExternalVariable( "stilton",
-                                                                            context );
+                                                                            factory );
         assertSame( stilton,
                     valueHandler.getValue() );
     }

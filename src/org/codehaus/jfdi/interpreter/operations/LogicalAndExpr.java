@@ -9,15 +9,15 @@ public class LogicalAndExpr implements Expr {
 	private Expr rhs;
 
 	public LogicalAndExpr(Expr lhs, Expr rhs) {
-		System.err.println( "LogicalAndExpr l: " + lhs );
-		System.err.println( "LogicalAndExpr r: " + rhs );
+		//System.err.println( "LogicalAndExpr l: " + lhs );
+		//System.err.println( "LogicalAndExpr r: " + rhs );
 		this.lhs = lhs;
 		this.rhs = rhs;
 	}
 	
 	public Object getValue() {
-		System.err.println( "L: " + lhs );
-		System.err.println( "R: " + rhs );
+		//System.err.println( "L: " + lhs );
+		//System.err.println( "R: " + rhs );
 		boolean lhsBool = Coercion.toBoolean( lhs.getValue() );
 		if ( ! lhsBool ) {
 			// short-circuit, avoid rhs

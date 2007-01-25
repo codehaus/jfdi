@@ -19,8 +19,9 @@ public class ListValueTest extends TestCase {
                         cheddar );        
         
         LiteralValue literal = new LiteralValue( "literal" );        
-        
-        ValueHandler external = new DefaultExternalVariable( "cheddar", externals );
+                
+        DefaultValueHandlerFactory factory = new DefaultValueHandlerFactory(null, externals);        
+        ValueHandler external = new DefaultExternalVariable( "cheddar", factory );
         
         LiteralValue literalKey = new LiteralValue( "literalKey" );
         LiteralValue literalValue = new LiteralValue( "literalValue" );
