@@ -28,7 +28,7 @@ public class MethodInvoker {
 	public Object invoke(Object instance) throws IllegalArgumentException,
 			IllegalAccessException, InvocationTargetException {
 		
-		System.err.println( "invoke ::" + method  + " on " + instance );
+		//System.err.println( "invoke ::" + method  + " on " + instance );
 
 		// None static methods cannot have a null instance
 		if (!isFunction && instance == null) {
@@ -41,9 +41,9 @@ public class MethodInvoker {
 
 		Object result = null;
 
-		System.err.println("invoke on " + instance);
-		System.err.println("invoke of " + method);
-		System.err.println("invoke with " + Arrays.asList( params ) );
+		//System.err.println("invoke on " + instance);
+		//System.err.println("invoke of " + method);
+		//System.err.println("invoke with " + Arrays.asList( params ) );
 
 		// now the actual invoking of the method
 		result = this.method.invoke(instance, params);

@@ -690,7 +690,7 @@ public class JFDIParser extends Parser {
             } while (true);
 
             if ( backtracking==0 ) {
-              System.err.println( "add_expr returns " + e ); 
+              //System.err.println( "add_expr returns " + e ); 
             }
 
             }
@@ -803,7 +803,7 @@ public class JFDIParser extends Parser {
             } while (true);
 
             if ( backtracking==0 ) {
-              System.err.println( "mult_expr returns " + e ); 
+              //System.err.println( "mult_expr returns " + e ); 
             }
 
             }
@@ -969,7 +969,7 @@ public class JFDIParser extends Parser {
             } while (true);
 
             if ( backtracking==0 ) {
-              System.err.println( "equality_expr returns " + e ); 
+              //System.err.println( "equality_expr returns " + e ); 
             }
 
             }
@@ -1158,7 +1158,7 @@ public class JFDIParser extends Parser {
             }
 
             if ( backtracking==0 ) {
-              System.err.println( "atom returns " + e ); 
+              //System.err.println( "atom returns " + e ); 
             }
 
             }
@@ -1414,9 +1414,9 @@ public class JFDIParser extends Parser {
 
               			try {
               				type = typeResolver.resolveType( i.getText() );
-              				System.err.println( "CASTING TO " + type);
+              				//System.err.println( "CASTING TO " + type);
               			} catch (ClassNotFoundException e) {
-              				System.err.println( e.getMessage() );
+              				//System.err.println( e.getMessage() );
               			}
               		
             }
@@ -1692,7 +1692,7 @@ public class JFDIParser extends Parser {
         try {
             synpred1_fragment(); // can never throw exception
         } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
+            //System.err.println("impossible: "+re);
         }
         boolean success = !failed;
         input.rewind(start);

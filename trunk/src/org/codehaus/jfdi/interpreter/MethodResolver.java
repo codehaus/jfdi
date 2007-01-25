@@ -24,7 +24,7 @@ public class MethodResolver {
 
 	public Method resolveMethod(Class clazz, String name, Object[] params) {
 
-		System.err.println("resolve " + name + " on " + clazz);
+		//System.err.println("resolve " + name + " on " + clazz);
 
 		Class[] classes = new Class[params.length];
 		for (int i = 0, length = params.length; i < length; i++) {
@@ -41,14 +41,14 @@ public class MethodResolver {
 
 		// check for null params, so we know if all the types are defined
 		for (int i = 0, length = params.length; i < length; i++) {
-			System.err.println( "param: " + params[i] );
+			//System.err.println( "param: " + params[i] );
 			if (params[i] == null) {
 				allDefined = false;
 			}
 		}
 		
-		System.err.println( "clazz: " + clazz );
-		System.err.println( "name: " + name );
+		//System.err.println( "clazz: " + clazz );
+		//System.err.println( "name: " + name );
 
 		if (allDefined) {
 			method = getMethod(clazz, name, params);
@@ -68,7 +68,7 @@ public class MethodResolver {
 		// [" + name + "] on class [" + clazz.getName() + "] for parameters " +
 		// arrayToString( params ) );
 		// }
-		System.err.println( "find " + method );
+		//System.err.println( "find " + method );
 		return method;
 	}
 
@@ -105,10 +105,10 @@ public class MethodResolver {
 		Method[] methods = clazz.getMethods();
 		for (int i = 0; i < methods.length; i++) {
 			if (methods[i].getName().equals(methodName)) {
-				System.err.println( "NAME: " + methods[i] );
-				System.err.println( "len: " + length );
+				//System.err.println( "NAME: " + methods[i] );
+				//System.err.println( "len: " + length );
 				if (methods[i].getParameterTypes().length == length) {
-					System.err.println( "ADD: " + methods[i] );
+					//System.err.println( "ADD: " + methods[i] );
 					list.add(methods[i]);
 				}
 			}

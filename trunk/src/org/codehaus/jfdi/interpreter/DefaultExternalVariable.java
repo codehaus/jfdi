@@ -5,11 +5,9 @@ import java.util.Map;
 public class DefaultExternalVariable
     implements
     VariableValueHandler {
-    //private Map context;
+    
 	private DefaultValueHandlerFactory factory;
-    
-    private Object cachedValue;
-    
+      
     private String identifer;
     private Class type;
     
@@ -28,10 +26,7 @@ public class DefaultExternalVariable
     }
 
     public Object getValue() {
-        if ( this.cachedValue  ==  null ) {
-            this.cachedValue = this.factory.get( this.identifer );
-        }
-        return this.cachedValue;
+        return this.factory.get( this.identifer );
     }
 
     public boolean isFinal() {

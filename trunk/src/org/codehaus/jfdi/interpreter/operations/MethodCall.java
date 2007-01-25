@@ -23,10 +23,10 @@ public class MethodCall implements Expr {
 		for ( int i = 0 ; i < paramTypes.length ; ++i ) {
 			paramTypes[ i ] = params[ i ].getType();
 		}
-		System.err.println( "obj.getType(): " + obj.getType() );
-		System.err.println( "name: " + name );
+		//System.err.println( "obj.getType(): " + obj.getType() );
+		//System.err.println( "name: " + name );
 		this.method = MethodResolver.getInstance().resolveMethod( obj.getType(), name, paramTypes );
-		System.err.println( "method: " + method );
+		//System.err.println( "method: " + method );
 	}
 
 	public Object getValue() {
@@ -37,7 +37,7 @@ public class MethodCall implements Expr {
 			paramObjs[i] = params[i].getValue();
 		}
 		
-		System.err.println( "CALL " + name + " " + Arrays.asList( paramObjs ) );
+		//System.err.println( "CALL " + name + " " + Arrays.asList( paramObjs ) );
 		MethodInvoker invoker = new MethodInvoker(  method, false, paramObjs );
 		try {
 			return invoker.invoke( thisObj );

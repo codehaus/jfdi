@@ -40,8 +40,9 @@ public class MapValueTest extends TestCase {
                                                                             local );
 
         // Make a external/local key/value pair
+        DefaultValueHandlerFactory factory = new DefaultValueHandlerFactory(null, externals);
         ValueHandler external = new DefaultExternalVariable( "cheddar",
-                                                                    externals );
+                                                             factory );
         MapValue.KeyValuePair externalLocalPair = new MapValue.KeyValuePair( external,
                                                                              local );
 
